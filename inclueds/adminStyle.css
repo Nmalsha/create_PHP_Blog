@@ -1,0 +1,125 @@
+/*adminView.php*/
+.bg_color{
+    background-color: #124375 ;
+   
+}
+.list ul{
+    width: 100%;
+    display: flex;
+    justify-content: end; 
+    color: white;
+    list-style: none;
+}
+.loguserwrapper{
+    display: flex;
+    height: 800px;
+}
+
+.left_sidebar{
+flex: 1;
+height: 100%;
+
+background-color:#124375 ;
+}
+.admin_content{
+flex: 8;
+height: 100%;
+
+}
+.left_sidebar ul {
+list-style: none;
+margin: 0px;
+padding:0px ;
+color: white;
+}
+.nav ul li a{
+    color: white;
+    }
+.left_sidebar ul li a{
+    list-style: none;
+   display: block;
+    padding:18px ;
+    border-bottom: 1px solid  #124375;
+    color: white;
+    }
+    .left_sidebar ul li a:hover{
+        background-color:#1f4c79 ;
+        }
+        .admin_content{
+            padding: 40px 100px 100px;
+            overflow-y: scroll;
+        }
+        .page_title{
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+        }
+
+        th,td{
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #1f4c79;
+        }
+        .edit{
+color: green;
+        }
+        .edit:hover{
+        text-decoration: underline;
+                    }
+        .delete{
+            color: red;
+            
+        }
+        .delete:hover{
+            text-decoration: underline;
+            
+        }
+        .publish{
+            color: blue;
+        }
+        .publish:hover{
+            text-decoration: underline;
+        }
+        .button_style{
+            border: 1px solid #1f4c79;
+            background: #1f4c79;
+            color: white;
+        }
+        /* Form styling*/
+.form_action{
+    border-radius: 10px 10px 0px 0px;
+border: 1px solid #124375;
+background: #124375;
+color: white;
+text-align: center;
+}
+Form {
+    width: 60%;
+    margin: 0px auto;
+  
+    border-radius: 0px 0px 0px 10px;
+}
+.input-group{
+    margin: 10px 0px 10px 0px;
+}
+.formwrapp{
+    border: 2px solid #124375;
+    margin-top: -8px;
+}
+.width{
+    width: 100%;
+    margin-top: 10px;
+}
+label{
+    margin-left: 20px;
+}
+.btn_style{
+    width: 100%;
+margin-top: 20px;
+margin-bottom: 20px;
+background: #124375;
+}

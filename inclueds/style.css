@@ -1,0 +1,78 @@
+/* header.php*/
+
+.bg_color{
+    background-color: #124375 ;
+   
+}
+.list ul{
+    width: 100%;
+    display: flex;
+    justify-content: end; 
+}
+/* index.php*/
+.actualite{
+  margin-top: 50px;
+}
+.contact_form{
+    margin-top: 50px;
+}
+/* Form styling*/
+.form_action{
+    border-radius: 10px 10px 0px 0px;
+border: 1px solid #124375;
+background: #124375;
+color: white;
+text-align: center;
+}
+Form {
+    width: 60%;
+    margin: 0px auto;
+  
+    border-radius: 0px 0px 0px 10px;
+}
+.input-group{
+    margin: 10px 0px 10px 0px;
+}
+.formwrapp{
+    border: 2px solid #124375;
+    margin-top: -8px;
+}
+.width{
+    width: 100%;
+    margin-top: 10px;
+}
+label{
+    margin-left: 20px;
+}
+.btn_style{
+    width: 100%;
+margin-top: 20px;
+margin-bottom: 20px;
+background: #124375;
+}
+
+/* blog.php*/
+.img_style{
+    height: 10rem;
+    border-radius: 10px 10px 0px 0;
+    border: 2px solid #124375;
+
+}
+/*loguserview.php*/
+.loguserwrapper{
+    display: flex;
+    height: 500px;
+}
+
+.left_sidebar{
+flex: 1;
+height: 100%;
+
+background-color:#124375 ;
+}
+.loguser_content{
+flex: 8;
+height: 100%;
+
+}
+/* PAGE ACCUEILS*/
