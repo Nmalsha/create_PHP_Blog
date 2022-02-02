@@ -33,16 +33,18 @@ if(invalidEmail($email) !==false ){
 }
  //if passwords dont machted 
 if(pwdMatch($password,$password2) !==false ){
-    header("location:../signup.php?error=password dont matched");
+    header("location:../signup.php?error=passworddontmatched");
     exit();
 }
  //if username already in the database
 if(uidExists($conn,$username,$email) !==false ){
-    header("location:../signup.php?error=User name taken");
+    header("location:../signup.php?error=Usernametaken");
     exit();
 }
 // if not create user in the database
-createUser($conn,$username,$email,$password);
+
+
+createUser($conn,$username,$password,$email);
  }
 
 else{
@@ -51,5 +53,3 @@ else{
     }
 
 
-
- 

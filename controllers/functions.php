@@ -1,4 +1,6 @@
 <?php
+// SIGNUP PROCESS FUNCTIONS
+
 include_once ("connectionDb.php") ;
 // creating fonction for the signup process
 function emptyInputSignup($username,$email,$password,$password2){
@@ -96,7 +98,7 @@ function createUser($conn,$username,$password,$email){
     }
        //if no errors ,hashing the password and binding the parameters
         $hashPassword = password_hash($password,PASSWORD_DEFAULT);
-
+    
         mysqli_stmt_bind_param($statment,"sss",$username,$hashPassword,$email);
         mysqli_stmt_execute($statment);
         mysqli_stmt_close($statment);
@@ -106,6 +108,50 @@ function createUser($conn,$username,$password,$email){
 
 }
 
+// LOGIN PROCESS FUNCTIONS
 
 
+function emptyInputLogin($username,$password){
+    $result;
+    //if the fileds empty then
+    if(empty($username)||empty($password) ){
+    
 
+        $result= true;
+
+    }else{
+        $result= false;
+    }
+return  $result;
+}
+
+function loginUser($conn,$username,$password){
+//see whether the username or email exist in the database using the function uidExists
+$uidExists = uidExists($conn,$username,$username);
+
+if($uidExists ===  false){
+    var_dump($uidExists);
+    die;
+    header("location:../connect.php?error=wronglogin");
+    exit();
+
+}
+// checking the entered password matched with the password in the database using the associated array column "password "
+$pwdHashed = $uidExists["passwords"];
+$checkPwd = password_verify ($password,$pwdHashed);
+
+if($checkPwd === false){
+  
+    header("location:../connect.php?error=wronglogin");
+    exit();
+
+}else if($checkPwd === true){
+
+    session_start();
+    $_SESSION["username"] = $uidExists["username"];
+
+    header("location:../index.php");
+    exit();
+}
+
+}

@@ -1,4 +1,9 @@
+<?php
+session_start();
+?>
 <!-- header.php -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
