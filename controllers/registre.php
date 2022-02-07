@@ -38,6 +38,7 @@ if(pwdMatch($password,$password2) !==false ){
 }
  //if username already in the database
 if(uidExists($conn,$username,$email) !==false ){
+  
     header("location:../signup.php?error=Usernametaken");
     exit();
 }

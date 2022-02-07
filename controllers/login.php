@@ -10,11 +10,13 @@ if(isset($_POST["login"])){
         header("location:../connect.php?error=emptyInput");
          exit();
     }
+
+
 // log the user to the data base
 
 loginUser($conn,$username,$password);
-var_dump($checkPwd);
-die;
+var_dump($uidExists);
+    die;
 
     }else{
         // header("location:../login.php");

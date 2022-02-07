@@ -17,49 +17,12 @@
     <link rel="stylesheet" href="inclueds/adminStyle.css" />
 </head>
 <body >
-<nav class="navbar  sticky-top navbar-expand-lg navbar-dark  bg_color">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="images/logo.png" width="200" alt="logo de la site"
-      /></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse list" >
-      <i class="fa fa-bars menue-toggle"></i>
-      <ul class="nav">
-      <li>
-          <a  href="#" ><i class="fa fa-user"></i>
-        user name
-        <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
-      
-      </a>
-      <ul >
-      <li >
-          <a class="logout" href="#">Logout</a>
-        </li>
-      </ul>
-        </li>
-        
-        
-      </ul>
-    </div>
-  </div>
-</nav>
- <!-- contents -->
+<?php include_once("header.php"); ?>
 
-    <div class="loguserwrapper">
-<!-- left side bar -->
-<div class="left_sidebar">
-<ul>
-  <li><a href="adminView.php">Manage Posts</a></li>
-  <li><a href="adminViewManageUsers.php">Manage Users</a></li>
-  
-</ul>
-</div>
 <!-- log user contnt -->
 <div class="admin_content">
 <div class="button-group">
-  <a href="adminView.php" class="btn btn-big button_style">Go Back</a>
+  <a href="logUserView.php" class="btn btn-big button_style">Go Back</a>
   <a href="editPost.php" class="btn btn-big button_style">Edit Post</a>
 </div> 
 <div class="content">

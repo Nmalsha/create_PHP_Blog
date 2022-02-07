@@ -4,7 +4,7 @@
 
 include_once("controllers/registre.php");
 
-;?>
+?>
 <!-- signup.php -->
 <!DOCTYPE html>
 <html>

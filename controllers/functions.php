@@ -56,10 +56,12 @@ return  $result;
 function uidExists($conn,$username,$email){
    
     //if the username or email already exist in the data base
-    $sql = "SELECT * FROM users WHERE username=? OR email=?;";
+    $sql = "SELECT * FROM users WHERE username=? OR email=? ;";
     // creating the preraire statment to prevent distroing data in the database by adding lines of codes by user instead of filling the signup fields
     $statment = mysqli_stmt_init($conn);
+  
     if(!mysqli_stmt_prepare ($statment,$sql)){
+   
         header("location:../signup.php?error=statment failed");
         exit();
 
@@ -84,25 +86,33 @@ function uidExists($conn,$username,$email){
 mysqli_stmt_close($statment);
 }
 
+function isAdmin(){
 
+}
 function createUser($conn,$username,$password,$email){
-   
+ 
     //if the username or email already exist in the data base
     $sql = "INSERT INTO users (username,passwords,email) VALUES (?,?,?);";
     // creating the preraire statment to prevent distroing data in the database by adding lines of codes by user instead of filling the signup fields
+
     $statment = mysqli_stmt_init($conn);
+   
+   
     if(!mysqli_stmt_prepare ($statment,$sql)){
         header("location:../signup.php?error=statment failed");
         exit();
 
     }
+  
        //if no errors ,hashing the password and binding the parameters
         $hashPassword = password_hash($password,PASSWORD_DEFAULT);
     
         mysqli_stmt_bind_param($statment,"sss",$username,$hashPassword,$email);
+
         mysqli_stmt_execute($statment);
         mysqli_stmt_close($statment);
-        header("location:../connect.php?error=noerrors");
+        
+        header("location:../connect.php?error=no_errors");
         exit();
         
 
@@ -130,28 +140,41 @@ function loginUser($conn,$username,$password){
 $uidExists = uidExists($conn,$username,$username);
 
 if($uidExists ===  false){
-    var_dump($uidExists);
-    die;
+    
     header("location:../connect.php?error=wronglogin");
     exit();
 
 }
 // checking the entered password matched with the password in the database using the associated array column "password "
 $pwdHashed = $uidExists["passwords"];
+$isadmin = $uidExists["isAdmin"];
 $checkPwd = password_verify ($password,$pwdHashed);
 
-if($checkPwd === false){
+ 
+
+ if($checkPwd === false){
   
-    header("location:../connect.php?error=wronglogin");
+     header("location:../connect.php?error=wronglogin");
     exit();
 
-}else if($checkPwd === true){
+ }
+ else if($isadmin == null && $checkPwd === true){
 
     session_start();
     $_SESSION["username"] = $uidExists["username"];
+    $_SESSION["isAdmin"] =  $uidExists["isAdmin"];
 
-    header("location:../index.php");
-    exit();
+    header("location:../logUserView.php");
+     exit();
 }
 
+else if($isadmin == 1 && $checkPwd === true){
+    session_start();
+    $_SESSION["username"] = $uidExists["username"];
+    $_SESSION["isAdmin"] =  $uidExists["isAdmin"];
+    header("location:../adminView.php");
+   exit();
 }
+
+ }
+
