@@ -12,9 +12,8 @@
 
 
 
- include_once "connectionDb.php" ;
- include_once "functions.php" ;
-
+include_once "../models/userFunctions.php" ;
+    include_once "../models/connectionDb.php" ;
 //checking the if there is a empty filds
  if(emptyInputSignup($username,$email,$password,$password2) !==false ){
      

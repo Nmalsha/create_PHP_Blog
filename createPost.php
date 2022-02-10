@@ -22,7 +22,18 @@
 <!-- log user contnt -->
 <div class="admin_content">
 <div class="button-group">
-  <a href="logUserView.php" class="btn btn-big button_style">Go Back</a>
+<?php
+
+// if the user is a normal user go back to the log user view
+if($_SESSION["isAdmin"]== null){
+echo "<a href='logUserView.php' class='btn btn-big button_style'>Go Back</a>";
+}
+// if the user is admin go back to the admin view
+else{
+  echo "<a href='adminView.php' class='btn btn-big button_style'>Go Back</a>";
+}
+?>
+ 
   <a href="editPost.php" class="btn btn-big button_style">Edit Post</a>
 </div> 
 <div class="content">

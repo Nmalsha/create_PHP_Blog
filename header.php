@@ -53,9 +53,7 @@ session_start();
         <?php
 
         // display user profile and logout button only if the user is log in
-       // if(isset($_SESSION["username"] ||$_SESSION["isAdmin"] )){
-
- 
+      
        
         if(isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"]== null ) )  {
 
