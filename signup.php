@@ -37,7 +37,7 @@ include_once("controllers/registre.php");
 </article>
     <aside class="col-9"> 
        
-        <form  method="post" action="controllers/registre.php">
+        <form  method="post" action="inclueds/signup.inc.php">
         <h1 class="form_action">Inscrez - vous</h1>
         <div class="formwrapp">
         <div class="col-8 width">
@@ -66,7 +66,7 @@ include_once("controllers/registre.php");
             <br>
             
            
-            <button type="submit" name="signup" class="btn btn-primary btn_style">Signup</button>
+            <button type="signup" name="signup" class="btn btn-primary btn_style">Signup</button>
             <br>
             <p> Deja inscrit ? <a href="connect.php">se connecté</a>
             <div class="error_display">

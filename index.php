@@ -21,6 +21,17 @@
 
     <?php include_once("header.php"); ?>
 </div>
+
+
+<?php
+ // display user name on the profile page
+        if(isset($_SESSION["username"])){
+echo "<p> BONJOUR " . $_SESSION["username"]." Vous étre connectez </p>";
+
+        } 
+        
+        ?>
+
 <section class="container-fluid actualite">
       <div class="container">
         <div class="row">

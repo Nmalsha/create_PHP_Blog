@@ -23,7 +23,7 @@
 <div class="admin_content">
 <div class="button-group">
 <?php
-
+echo 'Bonjour ' . htmlspecialchars($_GET["id"]) . '!';
 // if the user is a normal user go back to the log user view
 if($_SESSION["isAdmin"]== null){
 echo "<a href='logUserView.php' class='btn btn-big button_style'>Go Back</a>";
@@ -38,7 +38,7 @@ else{
 </div> 
 <div class="content">
   <h3 class="page_title">Create Posts</h3>
-<form action="controllers/createPost.php" method="post"  enctype="multipart/form-data" >
+<form action="controllers/posts.php" method="post"  enctype="multipart/form-data" >
 
 <div class="formwrapp">
         <div class="col-8 width ">
@@ -63,7 +63,7 @@ else{
                 <label for="file" class="form-label">Image</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
-            <button type="submit" class="btn btn-primary btn_style">Add Post</button>
+            <button type="submit" name="submit" class="btn btn-primary btn_style">Add Post</button>
 </div>
 </form>
 

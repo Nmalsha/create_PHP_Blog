@@ -23,7 +23,7 @@
  <!-- contents -->
  <?php
  // display user name on the profile page
-        if(isset($_SESSION["username"])){
+        if(isset($_SESSION["id"])){
 echo "<p> BONJOUR " . $_SESSION["username"]." </p>";
 
         } 
@@ -35,7 +35,7 @@ echo "<p> BONJOUR " . $_SESSION["username"]." </p>";
 <!-- log user contnt -->
 <div class="admin_content">
 <div class="button-group">
-  <a href="createPost.php" class="btn btn-big button_style">Create Post</a>
+  <a href="createPost.php?id=<?php echo $_SESSION["id"]; ?>" class="btn btn-big button_style">Create Post</a>
  
 </div> 
 <div class="content">

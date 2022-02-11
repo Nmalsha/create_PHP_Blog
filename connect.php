@@ -30,7 +30,7 @@
 </article>
     <aside class="col-9"> 
        
-        <form method="post" action="controllers/login.php" >
+        <form method="post" action="inclueds/login.inc.php" >
         <div class="formwrapp">
         <div class="col-8 width">
         <h1 class="form_action">Connectez - vous</h1>
@@ -48,7 +48,7 @@
             
             
            
-            <button type="submit" name= "login" class="btn btn-primary btn_style">Envoyer</button>
+            <button type="login" name= "login" class="btn btn-primary btn_style">Envoyer</button>
             <p> pas inscrit ? <a href="signup.php">Inscrez-vous</a>
             <div>
 
