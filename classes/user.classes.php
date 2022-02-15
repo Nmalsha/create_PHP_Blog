@@ -1,6 +1,6 @@
 <?php
 
-class signup extends Dbh{
+class signupUser extends Dbh{
 
     protected   function  setUser($username,$password,$email){
 
@@ -46,5 +46,20 @@ if($stmt->rowCount()> 0){
 return  $resultCheck;
 
     }
+
+//get One User
+
+Protected function getOneUser($username){
+    $sql="SELECT * FROM users WHERE username=?";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->execute([$username]);
+
+    $results = $stmt->fetchAll();
+    return $results;
+
+
+}
+
+
 
 }

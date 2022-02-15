@@ -10,6 +10,7 @@ protected function connect(){
         $dBUPassword = "";
         
 $dbh = new PDO('mysql:host=localhost;dbname=blogpost', $dBUsername, $dBUPassword);
+$dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 return $dbh;
 
     }

@@ -1,3 +1,4 @@
+<?php include('inclueds/autoloader.inc.php'); ?>
 <!-- index.php -->
 <!DOCTYPE html>
 <html>
@@ -29,8 +30,11 @@
 echo "<p> BONJOUR " . $_SESSION["username"]." Vous étre connectez </p>";
 
         } 
-        
-        ?>
+//TEST -TO DELETE
+       $userObject = new  UsersView();
+  
+     $userObject->showUser('marie');
+       ?>
 
 <section class="container-fluid actualite">
       <div class="container">

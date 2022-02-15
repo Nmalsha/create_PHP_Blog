@@ -10,10 +10,11 @@
   $password = ($_POST["password"]);
  
  //signup controller classe
+ 
  include "../classes/dbh.classes.php";
  include "../classes/login.classes.php";
- include "../classes/login.controller.php";
-
+ include "../classes/loginController.classes.php";
+// creating object
 $login = new loginController($username,$password);
 
 //running error handlers and user signup

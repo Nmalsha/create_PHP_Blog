@@ -73,7 +73,7 @@ session_start();
         //     echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";  
         //           }
 
-        else if ( isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"]!== null )  ){
+        else if ( isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"]== "1" )  ){
           var_dump($_SESSION["isAdmin"]);
             echo "<li class='nav-item'><a class='nav-link' href='adminView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";

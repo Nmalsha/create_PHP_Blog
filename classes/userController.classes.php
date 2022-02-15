@@ -1,5 +1,5 @@
 <?php
-class signupController extends signup{
+class signupUserController extends signupUser{
 
     private $username;
     private $email;
