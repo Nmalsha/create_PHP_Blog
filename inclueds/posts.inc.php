@@ -26,7 +26,8 @@ $templateName = $postImage["tmp_name"];
  include "../controllers/PostController.php";
 // creating object
 $posts = new PostController($userid,$postTitle,$postChapo,$postContent,$postImage,$filename,$templateName);
-
+var_dump($posts);
+die;
 //running error handlers and user signup
 $posts->createPost();
 //redirect user

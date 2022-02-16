@@ -14,7 +14,7 @@ function autoLoader($className){
         $path='classes/'; 
     }
    
-    $extension= ".classes.php";
+    $extension= ".php";
     $fullPath = $path.$className.$extension;
 
     // if the path is wrong, gives a error
@@ -24,7 +24,8 @@ return false;
     include_once $fullPath;
 }
 */
-
+/*
 spl_autoload_register(function ($class) {
     include 'classes/' . $class . '.php';
 });
+*/

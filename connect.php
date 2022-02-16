@@ -1,3 +1,14 @@
+<?php
+require_once "inclueds/autoloader.mvc.php";
+
+
+if(isset($_POST['login'])){
+
+    models\loginHandler::login();
+}
+
+?>
+
 <!-- connect.php -->
 <!DOCTYPE html>
 <html>
@@ -30,7 +41,7 @@
 </article>
     <aside class="col-9"> 
        
-        <form method="post" action="inclueds/login.inc.php" >
+        <form method="post" action="connect.php" >
         <div class="formwrapp">
         <div class="col-8 width">
         <h1 class="form_action">Connectez - vous</h1>

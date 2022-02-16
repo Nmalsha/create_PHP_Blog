@@ -1,7 +1,11 @@
 <?php 
-/*
-//include 'autoloader.inc.php';
 
+namespace models;
+
+use controllers\loginController;
+
+class loginHandler{
+    public static function login(){
 // check if the sumbil button clicked
  if(isset($_POST["login"])){
 
@@ -11,15 +15,15 @@
  
  //signup controller classe
  
- include "../models/Dbh.php";
- include "../models/login.php";
- include "../controllers/loginController.php";
- 
+
 // creating object
 $login = new loginController($username,$password);
 
 //running error handlers and user signup
 $login->loginUser();
 //redirect user
-header("location:../logUserView.php?error=no_errors");
+header("location: /logUserView.php?error=no_errors");
  }
+
+}
+}

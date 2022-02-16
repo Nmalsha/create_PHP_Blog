@@ -1,4 +1,9 @@
 <?php
+namespace controllers;
+
+use models\signupUser;
+
+
 class signupUserController extends signupUser{
 
     private $username;

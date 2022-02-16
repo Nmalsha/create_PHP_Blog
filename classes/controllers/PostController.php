@@ -1,5 +1,6 @@
-
 <?php 
+namespace controllers;
+
 class PostController extends Posts{
     private $userid;
     private $postTitle;

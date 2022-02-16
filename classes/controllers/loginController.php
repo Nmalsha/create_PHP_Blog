@@ -1,4 +1,8 @@
 <?php
+namespace controllers;
+
+use models\login;
+
 class loginController extends login{
 
     private $username;

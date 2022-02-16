@@ -1,5 +1,6 @@
-
 <?php
+namespace models;
+
 class Posts extends Dbh{
     
 //setting values to the database
@@ -18,7 +19,7 @@ class Posts extends Dbh{
   //get All Posts
 
   Protected function getAllPostsForOneUser($userid){
-    
+  
 
     $sql="SELECT * FROM posts WHERE userId=$userid ORDER BY postCreatedOn" ;
   

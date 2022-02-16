@@ -1,6 +1,6 @@
 <?php 
 
-
+/*
 
 // check if the sumbil button clicked
  if(isset($_POST["signup"])){

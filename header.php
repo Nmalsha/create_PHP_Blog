@@ -50,6 +50,10 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" href="blog.php">Blogs</a>
         </li>
+
+
+
+
         <?php
 
         // display user profile and logout button only if the user is log in

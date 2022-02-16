@@ -1,5 +1,7 @@
 <?php
 
+namespace models;
+
 class login extends Dbh{
 
     protected   function  getUser($username,$password){

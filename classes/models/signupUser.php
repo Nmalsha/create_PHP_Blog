@@ -1,5 +1,7 @@
 <?php
 
+namespace models;
+
 class signupUser extends Dbh{
 
     protected   function  setUser($username,$password,$email){
@@ -47,18 +49,7 @@ return  $resultCheck;
 
     }
 
-//get One User
 
-Protected function getOneUser($username){
-    $sql="SELECT * FROM users WHERE username=?";
-    $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$username]);
-
-    $results = $stmt->fetchAll();
-    return $results;
-
-
-}
 
 
 
