@@ -1,6 +1,7 @@
 <?php
 
 namespace view;
+use models\Posts;
 
 class PostsView extends Posts{
 
@@ -9,9 +10,12 @@ class PostsView extends Posts{
     {
         
         $results = $this->getAllPostsForOneUser($userid);
-      
-echo $results;
-echo $results[0]['username'] . "" .$results[0]['email'];
+
+       
+            foreach ($results as $result);
+
+        echo $results[0]['userId'] . "" .$results[0]['postTitle'] . "" .$results[0]['postChapo'];
+        
     }
 
 

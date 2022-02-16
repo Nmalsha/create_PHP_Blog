@@ -1,6 +1,6 @@
 <?php 
 namespace controllers;
-
+use models\Posts;
 class PostController extends Posts{
     private $userid;
     private $postTitle;

@@ -1,3 +1,13 @@
+<?php
+require_once "inclueds/autoloader.mvc.php";
+
+
+if(isset($_POST['submit'])){
+
+    models\PostsHandler::post();
+}
+
+?>
 <!-- logUserView.php -->
 <!DOCTYPE html>
 <html>
@@ -38,7 +48,7 @@ else{
 </div> 
 <div class="content">
   <h3 class="page_title">Create Posts</h3>
-<form action="inclueds/posts.inc.php" method="post"  enctype="multipart/form-data" >
+<form action="createPost.php" method="post"  enctype="multipart/form-data" >
 
 <div class="formwrapp">
 

@@ -24,7 +24,8 @@ class SignupHandler{
     
     //running error handlers and user signup
     $signup->signupUser();
-
+//redirect user
+header("location:../connect.php?error=no_errors");
 
 
     }

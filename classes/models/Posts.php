@@ -1,5 +1,6 @@
 <?php
 namespace models;
+ 
 
 class Posts extends Dbh{
     
@@ -21,12 +22,11 @@ class Posts extends Dbh{
   Protected function getAllPostsForOneUser($userid){
   
 
-    $sql="SELECT * FROM posts WHERE userId=$userid ORDER BY postCreatedOn" ;
+    $sql="SELECT * FROM posts WHERE userId=? ORDER BY postCreatedOn" ;
   
     $stmt = $this->connect()->prepare($sql);
-    var_dump($stmt);
-    die;
-    if(!$stmt->execute(array($userid,$postTitle,$postChapo,$postContent,$filename))){
+    
+    if(!$stmt->execute(array($userid))){
         $stmt=null;
         header("location:../logUserView.php?error=statment failed");
         exit();
@@ -40,6 +40,7 @@ class Posts extends Dbh{
     
        }
        $posts = $stmt->fetchAll();
+       
        return $posts;
        
 

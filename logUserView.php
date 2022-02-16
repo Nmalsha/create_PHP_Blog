@@ -1,6 +1,7 @@
 
 <?php
-include'inclueds/autoloader.inc.php';
+require_once "inclueds/autoloader.mvc.php";
+use view\PostsView;
 ?>
 <!-- logUserView.php -->
 <!DOCTYPE html>
@@ -36,16 +37,16 @@ echo "<p> BONJOUR " . $_SESSION["username"]." </p>";
     <div class="loguserwrapper">
 <!-- left side bar -->
 <?php 
-// $postObject = new  PostsView();
+ $postObject = new  PostsView();
 
-// $postObject->showPosts($userid);
+$postObject->showPosts('posts');
 
 ?>
 
 <!-- log user contnt -->
 <div class="admin_content">
 <div class="button-group">
-  <a href="views/createPost.php?id=<?php echo $_SESSION["id"]; ?>" class="btn btn-big button_style">Create Post</a>
+  <a href="createPost.php?id=<?php echo $_SESSION["id"]; ?>" class="btn btn-big button_style">Create Post</a>
  
 </div> 
 <div class="content">
@@ -54,19 +55,26 @@ echo "<p> BONJOUR " . $_SESSION["username"]." </p>";
   <thread>
     <th>N</th>
     <th>Title</th>
-    <th>Auther</th>
+    <th>Content</th>
     <th colspan="3">Action</th>
 </thread>
 <tbody>
+
+<?php 
+$results = array();
+$results[] = $results;
+foreach ($results as $results ) {?>
   <tr>
+   
     <td>1</td>
-    <td>This is first post</td>
-    <td>auther of the post</td>
+    <td><?php $results['postTitle'] ?></td>
+    <td><?php $results['postContent'] ?></td>
     <td><a href="#" class="edit">Edit</a></td>
     <td><a href="#" class="delete">Delete</a></td>
     <td><a href="#" class="publish">Publish</a></td>
 
 </tr>
+<?php } ?>
 </tbody>
 </table>
 

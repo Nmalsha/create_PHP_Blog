@@ -71,9 +71,11 @@ $stmt=null;
   //get One User
 
 Protected function getOneUser($username){
+    
     $sql="SELECT * FROM users WHERE username=?";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([$username]);
+
 
     $results = $stmt->fetchAll();
     return $results;
