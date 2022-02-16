@@ -21,9 +21,9 @@ $templateName = $postImage["tmp_name"];
 // die;
  //Posts controller classe
  
- include "../classes/Dbh.php";
- include "../classes/Posts.php";
- include "../classes/PostController.php";
+ include "../models/Dbh.php";
+ include "../models/Posts.php";
+ include "../controllers/PostController.php";
 // creating object
 $posts = new PostController($userid,$postTitle,$postChapo,$postContent,$postImage,$filename,$templateName);
 

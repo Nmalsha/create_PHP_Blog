@@ -33,9 +33,9 @@ echo "<p> BONJOUR " . $_SESSION["username"]." Vous étre connectez </p>";
 
         } 
 //TEST -TO DELETE
-      $userObject = new  UsersView();
+    //   $userObject = new  UsersView();
   
-    $userObject->showUser('roshan');
+    // $userObject->showUser('roshan');
         ?>
 
 <section class="container-fluid actualite">
