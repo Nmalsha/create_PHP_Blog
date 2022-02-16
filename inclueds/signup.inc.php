@@ -14,9 +14,9 @@
 
  //signup controller classe
 
-  include "../classes/dbh.classes.php";
-  include "../classes/user.classes.php";
-  include "../classes/userController.classes.php";
+  include "../classes/dbh.php";
+  include "../classes/signup.classes.php";
+  include "../classes/signupController.classes.php";
 // creating object
 $signup = new signupUserController($username,$email,$password,$password2);
 

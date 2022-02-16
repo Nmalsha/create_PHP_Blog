@@ -38,13 +38,14 @@ else{
 </div> 
 <div class="content">
   <h3 class="page_title">Create Posts</h3>
-<form action="controllers/posts.php" method="post"  enctype="multipart/form-data" >
+<form action="inclueds/posts.inc.php" method="post"  enctype="multipart/form-data" >
 
 <div class="formwrapp">
+
         <div class="col-8 width ">
                 <label for="postTitle" class="form-label">Post Title</label>
                 <input type="text" class="form-control"  name="postTitle" aria-describedby="nom-help">
-                
+                <input type="hidden" class="form-control"  name="userid" value="<?php $userid=($_GET["id"]) ; echo $userid;?>">
             </div>
             <br>
             <div class="col-8 width">

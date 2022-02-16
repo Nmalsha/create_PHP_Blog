@@ -1,3 +1,7 @@
+
+<?php
+include'inclueds/autoloader.inc.php';
+?>
 <!-- logUserView.php -->
 <!DOCTYPE html>
 <html>
@@ -31,6 +35,12 @@ echo "<p> BONJOUR " . $_SESSION["username"]." </p>";
         ?>
     <div class="loguserwrapper">
 <!-- left side bar -->
+<?php 
+// $postObject = new  PostsView();
+
+// $postObject->showPosts($userid);
+
+?>
 
 <!-- log user contnt -->
 <div class="admin_content">

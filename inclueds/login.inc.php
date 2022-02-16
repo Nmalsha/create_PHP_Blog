@@ -1,6 +1,6 @@
 <?php 
 
-
+//include 'autoloader.inc.php';
 
 // check if the sumbil button clicked
  if(isset($_POST["login"])){
@@ -11,9 +11,10 @@
  
  //signup controller classe
  
- include "../classes/dbh.classes.php";
- include "../classes/login.classes.php";
- include "../classes/loginController.classes.php";
+ include "../classes/Dbh.php";
+ include "../classes/login.php";
+ include "../classes/loginController.php";
+ 
 // creating object
 $login = new loginController($username,$password);
 

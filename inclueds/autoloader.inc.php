@@ -1,5 +1,6 @@
 <?php
 
+/*
 spl_autoload_register("autoLoader");
 
 function autoLoader($className){
@@ -22,4 +23,8 @@ return false;
 }
     include_once $fullPath;
 }
+*/
 
+spl_autoload_register(function ($class) {
+    include 'classes/' . $class . '.php';
+});
