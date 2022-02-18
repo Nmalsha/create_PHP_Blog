@@ -1,10 +1,10 @@
 <?php
 namespace controllers;
 
-use models\signupUser;
+use models\SignupUser;
 
 
-class SignupUserController extends signupUser{
+class SignupUserController extends SignupUser{
 
     private $username;
     private $email;
