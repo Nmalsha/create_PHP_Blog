@@ -1,9 +1,9 @@
 <?php
 namespace controllers;
 
-use models\login;
+use models\Login;
 
-class loginController extends login{
+class LoginController extends Login{
 
     private $username;
     
@@ -21,10 +21,10 @@ $this->password = $password;
 
 public function loginUser(){
 
-    if($this->emptyInputlogin()==false){
+    if($this->emptyInputlogin()===false){
 // echo "emptyInput"
         header("location:../login.php?error=emptyInput");
-        exit();
+        throw new \Exception('Empty input');
     }
    
      $this->getUser($this->username,$this->password);

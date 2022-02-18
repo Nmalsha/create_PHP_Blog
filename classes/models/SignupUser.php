@@ -2,7 +2,7 @@
 
 namespace models;
 
-class signupUser extends Dbh{
+class SignupUser extends Dbh{
 
     protected   function  setUser($username,$password,$email){
 //crating statement to prevent SQL injections

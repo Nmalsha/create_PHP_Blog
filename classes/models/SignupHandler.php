@@ -2,14 +2,14 @@
 
 namespace models;
 
-use controllers\signupUserController;
+use controllers\SignupUserController;
 
 class SignupHandler{
 
 
 
     public static function signup(){
-//getting user inserted data converting special caractores specifi in to html format -to prevent XSS attack
+//getting user inserted data converting special caractores specific in to html format -to prevent XSS attack
         $username = htmlspecialchars($_POST["username"]);
         $email = htmlspecialchars($_POST["email"]);
     
@@ -20,7 +20,7 @@ class SignupHandler{
     
 
     // creating object
-    $signup = new signupUserController($username,$email,$password,$password2);
+    $signup = new SignupUserController($username,$email,$password,$password2);
     
     //running error handlers and user signup
     $signup->signupUser();

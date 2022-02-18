@@ -2,13 +2,13 @@
 
 namespace models;
 
-use controllers\loginController;
+use controllers\LoginController;
 
-class loginHandler{
+class LoginHandler{
     public static function login(){
 // check if the sumbil button clicked
  if(isset($_POST["login"])){
-//getting user inserted data converting special caractores specifi in to html format -to prevent XSS attack
+//getting user inserted data converting special caractores specific in to html format -to prevent XSS attack
    
     $username = htmlspecialchars($_POST["username"]);
   $password =htmlspecialchars ($_POST["password"]);
@@ -17,7 +17,7 @@ class loginHandler{
  
 
 // creating object
-$login = new loginController($username,$password);
+$login = new LoginController($username,$password);
 
 //running error handlers and user signup
 $login->loginUser();

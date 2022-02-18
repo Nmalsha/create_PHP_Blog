@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 <?php
 echo 'Bonjour ' . htmlspecialchars($_GET["id"]) . '!';
 // if the user is a normal user go back to the log user view
-if($_SESSION["isAdmin"]== null){
+if($_SESSION["isAdmin"]=== null){
 echo "<a href='logUserView.php' class='btn btn-big button_style'>Go Back</a>";
 }
 // if the user is admin go back to the admin view

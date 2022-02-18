@@ -4,7 +4,7 @@ require_once "inclueds/autoloader.mvc.php";
 
 if(isset($_POST['login'])){
 
-    models\loginHandler::login();
+    models\LoginHandler::login();
 }
 
 ?>

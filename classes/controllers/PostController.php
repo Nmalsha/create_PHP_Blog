@@ -26,12 +26,13 @@ $this->templateName = $templateName;
 public function createPost(){
    
    
-    if($this->emptyInputSignup()==false){
+    if($this->emptyInputSignup()===false){
         // echo "emptyInput"
                 header("location:../createPost.php?error=emptyInput");
-                exit();
+               
+        throw new \Exception('Empty input');
             }
-            if ($this-> uploadImage()==false)  {
+            if ($this-> uploadImage()===false)  {
                 echo "Image did not save to the folder";
              }
              // saving in the DB
