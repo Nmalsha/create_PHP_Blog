@@ -55,8 +55,12 @@ return $result;
     private function uploadImage(){
         $result;
         $msg;
+         //move image file to the image folder 
         if($this->filename && $this->templateName){
-            move_uploaded_file($this->templateName, "../images/".$this->filename);
+           
+           
+           $image= move_uploaded_file($this->templateName, "images/".$this->filename);
+          
             $msg = "Image uploaded successfully";
             $result= true;
         } else{

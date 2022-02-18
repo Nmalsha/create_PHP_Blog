@@ -9,12 +9,12 @@ class SignupHandler{
 
 
     public static function signup(){
-
-        $username = ($_POST["username"]);
-        $email = ($_POST["email"]);
+//getting user inserted data converting special caractores specifi in to html format -to prevent XSS attack
+        $username = htmlspecialchars($_POST["username"]);
+        $email = htmlspecialchars($_POST["email"]);
     
-     $password = ($_POST["password1"]);
-     $password2 =($_POST["password2"]);
+     $password = htmlspecialchars($_POST["password1"]);
+     $password2 = htmlspecialchars($_POST["password2"]);
     
      //signup controller classe
     

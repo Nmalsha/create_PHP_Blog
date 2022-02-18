@@ -6,37 +6,35 @@ class Posts extends Dbh{
     
 //setting values to the database
     protected function setPost ($userid,$postTitle,$postChapo,$postContent,$filename){
-        
+        //crating statement to prevent SQL injections
         $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);'); 
         if(!$stmt->execute(array($userid,$postTitle,$postChapo,$postContent,$filename))){
             $stmt=null;
-           
+            throw new \Exception('statement failled');
     
         }
    
     $stmt=null;
    
     }
-  //get All Posts
+  //get All Posts for spesific user Id
 
   Protected function getAllPostsForOneUser($userid){
   
-
-    $sql="SELECT * FROM posts WHERE userId=? ORDER BY postCreatedOn ASC" ;
-  
+//get data from DB for display latest post on top
+    $sql="SELECT * FROM posts WHERE userId=? ORDER BY postCreatedOn DESC" ;
+  //crating statement to prevent SQL injections
     $stmt = $this->connect()->prepare($sql);
     
     if(!$stmt->execute(array($userid))){
         $stmt=null;
-        header("location:../logUserView.php?error=statment failed");
-        exit();
+        throw new \Exception('statement failled');
 
     }
 
     if($stmt->rowCount() == 0){
         $stmt=null;
-        header("location:../logUserView.php?error=usernotfound");
-                exit();
+        throw new \Exception('User not found');
     
        }
        $posts = $stmt->fetchAll();
@@ -46,7 +44,26 @@ class Posts extends Dbh{
 
 }
 
+//get All Posts 
 
+Protected function getAllPosts(){
+    $sql="SELECT * FROM posts WHERE published=1  ORDER BY postCreatedOn DESC" ;
+    $stmt = $this->connect()->prepare($sql);
+    if(!$stmt->execute()){
+        $stmt=null;
+        throw new \Exception('statement failled');
 
+    }
+
+    if($stmt->rowCount() == 0){
+        $stmt=null;
+        throw new \Exception('User not found');
+    
+       }
+       $posts = $stmt->fetchAll();
+       
+       return    $posts;
+
+}
 
 }

@@ -1,4 +1,7 @@
 <?php
+// adding session expire time to prevent session hijacking
+session_cache_expire(30);
+// session start
 session_start();
 ?>
 <!-- header.php -->

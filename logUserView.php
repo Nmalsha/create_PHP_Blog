@@ -37,9 +37,9 @@ echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
     <div class="loguserwrapper">
 <!-- left side bar -->
 <!-- <?php 
- $postObject = new  PostsView();
+//  $postObject = new  PostsView();
 
-$postObject->showPosts('posts');
+// $postObject->showPosts('posts');
 
 ?> -->
 
@@ -98,7 +98,7 @@ foreach ($data['posts'] as $post) {
     <td><?php echo $post['postChapo']?></td>
     <td><a href="#" class="edit">Edit</a></td>
     <td><a href="#" class="delete">Delete</a></td>
-    <td><a href="#" class="publish">Publish</a></td>
+ 
 
 </tr>
  <?php

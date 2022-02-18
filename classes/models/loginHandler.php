@@ -8,10 +8,10 @@ class loginHandler{
     public static function login(){
 // check if the sumbil button clicked
  if(isset($_POST["login"])){
-
+//getting user inserted data converting special caractores specifi in to html format -to prevent XSS attack
    
-    $username = ($_POST["username"]);
-  $password = ($_POST["password"]);
+    $username = htmlspecialchars($_POST["username"]);
+  $password =htmlspecialchars ($_POST["password"]);
  
  //signup controller classe
  

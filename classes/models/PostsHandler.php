@@ -8,7 +8,7 @@ class PostsHandler{
 
 
     public static function post(){
-
+//getting user inserted data converting special caractores specific in to html format -to prevent XSS attack
         $userid = htmlspecialchars($_POST["userid"]);
         $postTitle = htmlspecialchars($_POST["postTitle"]);
         $postChapo = htmlspecialchars($_POST["chapo"]);

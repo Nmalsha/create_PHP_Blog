@@ -1,6 +1,6 @@
 <?php
 
-
+/*
 // check if the submit button clicked
 if(isset($_POST["submit"])){
     $userid = htmlspecialchars($_POST["userid"]);
@@ -26,8 +26,7 @@ $templateName = $postImage["tmp_name"];
  include "../controllers/PostController.php";
 // creating object
 $posts = new PostController($userid,$postTitle,$postChapo,$postContent,$postImage,$filename,$templateName);
-var_dump($posts);
-die;
+
 //running error handlers and user signup
 $posts->createPost();
 //redirect user

@@ -1,26 +1,25 @@
 <?php
 
 namespace models;
-
+use \Exception;
 class login extends Dbh{
 
     protected   function  getUser($username,$password){
-
+//crating statement to prevent SQL injections
         $stmt = $this->connect()->prepare('SELECT  passwords FROM users WHERE username=? OR email=?;');   
             
       
         if(!$stmt->execute(array($username,$password))){
             $stmt=null;
-            header("location:../login.php?error=statment failed");
-            exit();
+            throw new \Exception('statement failled');
+          
     
         }
-        //if no records user go back to the login page
+        
    if($stmt->rowCount() == 0){
     $stmt=null;
-    header("location:../login.php?error=no user");
-            exit();
-
+    throw new \Exception('user not found');
+   
    }
 
  
@@ -35,21 +34,19 @@ class login extends Dbh{
 
  if( $checkPwd==false){
     $stmt=null;
-    header("location:../login.php?error=wrong passwordr");
-            exit();
+    throw new \Exception('Wrong password');
 
    }elseif($checkPwd==true){
+       //crating statement to prevent SQL injections
     $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username=? OR email=? AND passwords=?;');  
     if(!$stmt->execute(array($username,$username,$password))){
         $stmt=null;
-        header("location:../login.php?error=statment failed");
-        exit();
+        throw new \Exception('statement failled');
 
     }
     if($stmt->rowCount() == 0){
         $stmt=null;
-        header("location:../login.php?error=usernotfound");
-                exit();
+        throw new \Exception('user not found');
     
        }
        $user = $stmt->fetchAll();
@@ -73,6 +70,7 @@ $stmt=null;
 Protected function getOneUser($username){
     
     $sql="SELECT * FROM users WHERE username=?";
+    //crating statement to prevent SQL injections
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([$username]);
 
