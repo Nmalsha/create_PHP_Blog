@@ -1,3 +1,14 @@
+<?php
+require_once "inclueds/autoloader.mvc.php";
+
+
+if(isset($_POST['signup'])){
+
+    models\SignupHandler::signup();
+}
+
+?>
+
 
 <!-- signup.php -->
 <!DOCTYPE html>
@@ -31,7 +42,7 @@
 </article>
     <aside class="col-9"> 
        
-        <form  method="post" action="inclueds/signup.inc.php">
+        <form  method="post" action="signup.php">
         <h1 class="form_action">Inscrez - vous</h1>
         <div class="formwrapp">
         <div class="col-8 width">

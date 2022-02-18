@@ -1,6 +1,6 @@
 <?php 
 
-
+/*
 
 // check if the sumbil button clicked
  if(isset($_POST["signup"])){
@@ -14,9 +14,9 @@
 
  //signup controller classe
 
-  include "../classes/dbh.classes.php";
-  include "../classes/user.classes.php";
-  include "../classes/userController.classes.php";
+  include "../models/Dbh.php";
+  include "../models/signupUser.php";
+  include "../controllers/signupUserController.php";
 // creating object
 $signup = new signupUserController($username,$email,$password,$password2);
 

@@ -1,4 +1,7 @@
 <?php
+// adding session expire time to prevent session hijacking
+session_cache_expire(30);
+// session start
 session_start();
 ?>
 <!-- header.php -->
@@ -50,6 +53,10 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" href="blog.php">Blogs</a>
         </li>
+
+
+
+
         <?php
 
         // display user profile and logout button only if the user is log in
@@ -73,7 +80,7 @@ session_start();
         //     echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";  
         //           }
 
-        else if ( isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"]== "1" )  ){
+        else if ( isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"] !== null )  ){
           var_dump($_SESSION["isAdmin"]);
             echo "<li class='nav-item'><a class='nav-link' href='adminView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";
