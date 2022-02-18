@@ -22,7 +22,7 @@ class Posts extends Dbh{
   Protected function getAllPostsForOneUser($userid){
   
 
-    $sql="SELECT * FROM posts WHERE userId=? ORDER BY postCreatedOn" ;
+    $sql="SELECT * FROM posts WHERE userId=? ORDER BY postCreatedOn ASC" ;
   
     $stmt = $this->connect()->prepare($sql);
     

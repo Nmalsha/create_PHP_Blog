@@ -29,19 +29,19 @@ use view\PostsView;
  <?php
  // display user name on the profile page
         if(isset($_SESSION["id"])){
-echo "<p> BONJOUR " . $_SESSION["username"]." </p>";
+echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
 
         } 
         
         ?>
     <div class="loguserwrapper">
 <!-- left side bar -->
-<?php 
+<!-- <?php 
  $postObject = new  PostsView();
 
 $postObject->showPosts('posts');
 
-?>
+?> -->
 
 <!-- log user contnt -->
 <div class="admin_content">
@@ -53,28 +53,58 @@ $postObject->showPosts('posts');
   <h3 class="page_title">My Post</h3>
 <table>
   <thread>
-    <th>N</th>
+    <th>CreatedOn</th>
     <th>Title</th>
-    <th>Content</th>
+    <th>Chapo</th>
     <th colspan="3">Action</th>
 </thread>
 <tbody>
 
 <?php 
-$results = array();
-$results[] = $results;
-foreach ($results as $results ) {?>
+$userid =$_SESSION["id"];
+
+  $postObject = new  PostsView($userid);
+
+  $data=$postObject->showPosts($userid);
+  //  echo '<pre>';
+  //  var_dump($data);
+  //  echo '</pre>';
+//   $res=0;
+//  foreach ($results as $result) {
+//   $res += $result;
+
+ //  print_r($result);
+//  $arrlength = count($data);
+//  echo '<pre> arraylegth:';
+//    var_dump( $arrlength);
+//  echo '</pre>';
+//   for ( $row=0; $row<$arrlength;$row++){
+//     echo '<pre> row:';
+//    var_dump( $row);
+//  echo '</pre>';
+//  for ($col = 0; $col<8;$col++){
+//   echo '<pre> col:';
+//    var_dump($col);
+//  echo '</pre>';
+ 
+// }
+foreach ($data['posts'] as $post) {
+
+   ?>
   <tr>
    
-    <td>1</td>
-    <td><?php $results['postTitle'] ?></td>
-    <td><?php $results['postContent'] ?></td>
+    <td><?php echo $post['postCreatedOn']?></td>
+    <td><?php echo $post['postTitle']?></td>
+    <td><?php echo $post['postChapo']?></td>
     <td><a href="#" class="edit">Edit</a></td>
     <td><a href="#" class="delete">Delete</a></td>
     <td><a href="#" class="publish">Publish</a></td>
 
 </tr>
-<?php } ?>
+ <?php
+
+}
+?> 
 </tbody>
 </table>
 

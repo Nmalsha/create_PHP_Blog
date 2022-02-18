@@ -1,14 +1,7 @@
 <?php
 
-
-
-
-
 require_once "inclueds/autoloader.mvc.php";
 use view\UsersView;
-
-
-
 
 ?>
 
@@ -45,8 +38,10 @@ echo "<p> BONJOUR " . $_SESSION["username"]." Vous étre connectez </p>";
         } 
 //TEST -TO DELETE
        $userObject = new  UsersView();
- 
+
   $userObject->showUser('roshan');
+
+
         ?>
 
 <section class="container-fluid actualite">
