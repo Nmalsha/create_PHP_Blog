@@ -19,7 +19,7 @@ return $dbh;
     }
     catch(PDOException $e){
 print "Error DB!" .$e->getMessage() . "<br/>";
-die;
+throw new \Exception('DB ERROR');
     }
 
 }

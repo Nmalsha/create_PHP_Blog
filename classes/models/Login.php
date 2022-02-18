@@ -32,11 +32,11 @@ class login extends Dbh{
  $checkPwd = password_verify ($password,$hashPassword[0]["passwords"]);
 
 
- if( $checkPwd==false){
+ if( $checkPwd===false){
     $stmt=null;
     throw new \Exception('Wrong password');
 
-   }elseif($checkPwd==true){
+   }elseif($checkPwd===true){
        //crating statement to prevent SQL injections
     $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username=? OR email=? AND passwords=?;');  
     if(!$stmt->execute(array($username,$username,$password))){

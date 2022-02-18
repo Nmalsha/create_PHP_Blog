@@ -28,6 +28,7 @@ class Posts extends Dbh{
     
     if(!$stmt->execute(array($userid))){
         $stmt=null;
+        
         throw new \Exception('statement failled');
 
     }

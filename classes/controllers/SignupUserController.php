@@ -1,10 +1,10 @@
 <?php
 namespace controllers;
 
-use models\signupUser;
+use models\SignupUser;
 
 
-class signupUserController extends signupUser{
+class SignupUserController extends SignupUser{
 
     private $username;
     private $email;
@@ -22,30 +22,30 @@ $this->password2 = $password2;
 
 public function signupUser(){
 
-    if($this->emptyInputSignup()==false){
+    if($this->emptyInputSignup()===false){
 // echo "emptyInput"
         header("location:../signup.php?error=emptyInput");
-        exit();
+              throw new \Exception('Empty input');
     }
-    if($this->invalidUid()==false){
+    if($this->invalidUid()===false){
 // echo "IninvalidUid"
         header("location:../signup.php?error=IninvalidUid");
-    exit();
+        throw new \Exception('Invalid UID');
     }
-    if($this->invalidEmail()==false){
+    if($this->invalidEmail()===false){
         // echo "IninvalidEmail"
         header("location:../signup.php?error=IninvalidEmail");
-        exit();
+        throw new \Exception('invalidEmail');
             }
-            if($this-> pwdMatch()==false){
+            if($this-> pwdMatch()===false){
                 // echo "password dont matched"
                 header("location:../signup.php?error=passworddontmatched");
-                exit();
+                throw new \Exception('passworddontmatched');
                     }
-                    if($this->userTakenCheck()==false){
+                    if($this->userTakenCheck()===false){
                         // echo "Usernametaken"
                         header("location:../signup.php?error=Usernametaken");
-                        exit();
+                        throw new \Exception('Usernametaken');
                             }
                             $this->setUser($this->username,$this->password,$this->email);
 }

@@ -1,9 +1,9 @@
 <?php
 
 namespace view;
-use models\login;
+use models\Login;
 
-class UsersView extends login{
+class UsersView extends Login{
 
     public function showUser($username)
     {
