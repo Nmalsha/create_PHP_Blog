@@ -62,30 +62,39 @@ session_start();
         // display user profile and logout button only if the user is log in
       
        
-        if(isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"]== null ) )  {
-
-          echo "<li class='nav-item'><a class='nav-link' href='logUserView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
-                    </a></li>";
-               echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";
-            
-               
-            
-    
-        }           
-
-        // else if (isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"]!== null ) ){
-        //   var_dump($_SESSION["isAdmin"]);
-        //     echo "<li class='nav-item'><a class='nav-link' href='adminView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
-        //     </a></li>";
-        //     echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";  
-        //           }
-
-        else if ( isset ($_SESSION["username"]) && ( $_SESSION["isAdmin"] !== null )  ){
+        // if(isset ($_SESSION["username"]) )  {
+         
+        //   echo "<li class='nav-item'><a class='nav-link' href='logUserView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+        //             </a></li>";
+        //        echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";
+              
+        // }           
+        // if (  $admin === "1" ) {
       
+        //   echo "<li class='nav-item'><a class='nav-link' href='adminView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+        //   </a></li>";
+        //   echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";  
+        //         }
+        if (isset ( $_SESSION["id"]) ){
+          $admin = $_SESSION["isAdmin"];
+          var_dump($admin);
+          if($admin ===1 ){
+
             echo "<li class='nav-item'><a class='nav-link' href='adminView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";
             echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";  
+    
+           
+          }if($admin !== 1) {
+         
+            echo "<li class='nav-item'><a class='nav-link' href='logUserView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+            </a></li>";
+       echo "<li class='nav-item'><a class='nav-link' href='inclueds/logout.php'>logout </a></li>";
+          }
+           
                   }
+
+        
   
  else{
   // if not log in display signup ans connection
