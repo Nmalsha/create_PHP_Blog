@@ -1,0 +1,12 @@
+{
+  "name": "malsha/projet_5",
+  "authors": [
+    {
+      "name": "Nmalsha",
+      "email": "malshis@yahoo.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "^3.0"
+  }
+}
