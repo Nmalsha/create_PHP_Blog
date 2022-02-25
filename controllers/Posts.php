@@ -20,12 +20,11 @@ public function read($id)
 {
   echo $id;
 // var_dump($id);
-// die;
+//  die;
 
   $this->loadModel('Post');
    $post = $this->Post->getOnePost($id);
-var_dump($post );
-die;
+
    //calling to readpost view
    $this->render('read',['post'=>$post]);
 }
