@@ -1,6 +1,7 @@
 <?php
 
 namespace models;
+use Dbh;
 
 class SignupUser extends Dbh{
 
@@ -9,7 +10,7 @@ class SignupUser extends Dbh{
         $stmt = $this->connect()->prepare('INSERT INTO users( username,passwords,email) VALUES (?,?,?);');    
         $hashPassword = password_hash($password,PASSWORD_DEFAULT);
 
-
+      
     
         if(!$stmt->execute(array($username,$hashPassword,$email))){
             $stmt=null;

@@ -34,13 +34,13 @@ session_start();
     ></script>
     <!--Styles -->
    
-    <link rel="stylesheet" href="inclueds/style.css" />
+    <link rel="stylesheet" href="/inclueds/style.css" />
   </head>
 
 
 <nav class="navbar  sticky-top navbar-expand-lg navbar-dark  bg_color">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="images/logo.png" width="200" alt="logo de la site"
+    <a class="navbar-brand" href="index.php"><img src="/images/logo.png" width="200" alt="logo de la site"
       /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

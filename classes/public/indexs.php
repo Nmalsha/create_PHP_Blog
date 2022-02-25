@@ -1,6 +1,8 @@
-<?php
+ <?php
+
 echo "test";
 die;
+/*
 // define('ROOT',str_replace('index.php', '' , $_SERVER['SCRIPT_FILENAME']));
 // die(ROOT);
 //  require 'inclueds/autoloader.mvc.php';
@@ -51,4 +53,5 @@ if(isset($ctrl)){
 
 require_once "template.php";
 */
-?>
+
+?> 
