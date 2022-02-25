@@ -24,10 +24,13 @@ public function read($id)
 
   $this->loadModel('Post');
    $post = $this->Post->getOnePost($id);
-
+var_dump($post );
+die;
    //calling to readpost view
    $this->render('read',['post'=>$post]);
 }
+
+
 
 
 }

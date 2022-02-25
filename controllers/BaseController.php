@@ -15,15 +15,15 @@ abstract class BaseController{
 
         //Output buffer start
 
-//ob_start();
+ob_start();
 
         //randing the html docs from views/../..
         require_once(ROOT.'views/'.strtolower(get_class($this)).'/'.$fichier.'.php');
 
 
-       // $content= ob_get_clean();
+        $content= ob_get_clean();
 
-       // require_once (ROOT.'views/layout/defult.php');
+       require_once (ROOT.'views/layout/defult.php');
         
     }
    

@@ -47,7 +47,7 @@
           <a class="nav-link" href="blog.php">Blogs</a>
         </li>
         <li class='nav-item'>
-            <a class='nav-link' href='signup.php'>Inscrez vous </a>
+            <a class='nav-link' href='\index'>Inscrez vous </a>
           </li>
           "<li class='nav-item'>
             <a class='nav-link' href='connect.php'>Se Conneté </a>
