@@ -52,7 +52,7 @@ if(isset($_POST['signup'])){
      
 //save user informations to the database after verifying necessary details
 $this->Signup->setUser($username,$password,$email);
-header("location:localhost:8080/login");
+header("location:/login");
         }
         //randering signu form view
         $this->render('index');

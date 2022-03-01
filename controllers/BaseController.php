@@ -7,7 +7,7 @@ abstract class BaseController{
     {
         
         //loading models from folder models
-        require_once(ROOT.'/models/'.$model.'.php');
+        require_once(ROOT.'models/'.$model.'.php');
      
         $this->$model = new $model();
        
