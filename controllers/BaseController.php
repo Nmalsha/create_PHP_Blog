@@ -5,9 +5,12 @@ abstract class BaseController{
 
     public function loadModel(string $model)
     {
-        //loading models on folder models
-        require_once(ROOT.'/models/'.$model.'.php');
+        
+        //loading models from folder models
+        require_once(ROOT.'models/'.$model.'.php');
+     
         $this->$model = new $model();
+       
     }
 
     public function render(string $fichier,array $data = [])

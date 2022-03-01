@@ -1,3 +1,7 @@
+<?php
+var_dump($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,11 +30,11 @@
     <div class="collapse navbar-collapse list" >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Accueil</a>
+          <a class="nav-link active" aria-current="/posts" href="">Accueil</a>
         </li>
         
         <li class='nav-item'>
-            <a class='nav-link' href='/signup'>Inscrez vous </a>
+            <a class='nav-link' href='/signups'>Inscrez vous </a>
         </li>
         <li class='nav-item'>
             <a class='nav-link' href='/login'>Se Conneté </a>
