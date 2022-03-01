@@ -5,7 +5,7 @@
 </article>
     <aside class="col-9"> 
        
-        <form  method="post" action="SignupController.php">
+        <form  method="post" action="/Signups">
         <h1 class="form_action">Inscrez - vous</h1>
         <div class="formwrapp">
         <div class="col-8 width">

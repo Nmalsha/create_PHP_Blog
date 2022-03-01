@@ -1,11 +1,12 @@
 <?php
-//namespace controllers;
 
 
 class Posts extends BaseController{
 
     public function index(){
+
       $this->loadModel('Post');
+     
      // $template = $this->twig->load('posts/index.html');
      // echo $template->render([]);
       $posts= $this->Post->getAllPosts();
