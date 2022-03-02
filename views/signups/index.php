@@ -36,7 +36,7 @@
            
             <button type="signup" name="signup" class="btn btn-primary btn_style">Signup</button>
             <br>
-            <p> Deja inscrit ? <a href="connect.php">se connecté</a>
+            <p> Deja inscrit ? <a href="/logins">se connecté</a>
             <div class="error_display">
             <?php
 // error handling

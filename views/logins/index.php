@@ -4,7 +4,7 @@
   
         <aside class="col-9"> 
        
-            <form method="post" action="login.php" >
+            <form method="post" action="/logins" >
                 <div class="formwrapp">
                     <div class="col-8 width">
                         <h1 class="form_action">Connectez - vous</h1>
@@ -20,7 +20,7 @@
                     </div>
                     <br>
                         <button type="login" name= "login" class="btn btn-primary btn_style">Envoyer</button>
-                            <p> pas inscrit ? <a href="signup.php">Inscrez-vous</a>
+                            <p> pas inscrit ? <a href="/signups">Inscrez-vous</a>
                 <div>
 
             <?php
