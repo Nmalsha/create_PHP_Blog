@@ -18,7 +18,7 @@ class Logins extends BaseController{
             }
             //get the user informations from the database after verifying necessary details
             $this->Login->getUser($username,$password); 
-            //$posts= $this->Post->getAllPostsForOneUser($userid);
+            //passing user id to the url
            $userid= $_SESSION['id'];
             header("location:/users/index/".$userid);
             
