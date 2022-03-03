@@ -30,19 +30,25 @@ echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
 <?php 
 
 
-foreach ($posts as $post) { ?>
+// if(isset($_SESSION["id"])){
+// $userid = $_SESSION["id"];
+
+
+// }
+
+//foreach ($posts as $post) { ?>
 
   <tr>
    
-    <td><?php echo $post['postCreatedOn']; ?></td>
-    <td><?php echo $post['postTitle'] ;?></td>
-    <td><?php echo $post['postChapo']?></td>
+    <td><?php echo TPT?></td>
+    <td><?php echo  TPT?></td>
+    <td><?php echo TPT?></td>
     <td><a href="#" class="edit">Edit</a></td>
     <td><a href="#" class="delete">Delete</a></td>
  
 
 </tr>
-<?php }?>    
+<?php// }?>    
 </tbody>
 </table>
 

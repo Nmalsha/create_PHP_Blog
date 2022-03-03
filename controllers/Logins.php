@@ -19,15 +19,13 @@ class Logins extends BaseController{
             //get the user informations from the database after verifying necessary details
             $this->Login->getUser($username,$password); 
             //$posts= $this->Post->getAllPostsForOneUser($userid);
-            header("location:/users");
-           
-           
+           $userid= $_SESSION['id'];
+            header("location:/users/index/".$userid);
+            
         }
      
      //calling to readpost view
          $this->render('index');
     }
-
-
 
 }

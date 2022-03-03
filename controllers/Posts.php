@@ -19,14 +19,11 @@ class Posts extends BaseController{
 
 public function read($id)
 {
-  echo $id;
-// var_dump($id);
-//  die;
 
   $this->loadModel('Post');
    $post = $this->Post->getOnePost($id);
-
-   //calling to readpost view
+   
+   //calling to read post view
    $this->render('read',['post'=>$post]);
 }
 

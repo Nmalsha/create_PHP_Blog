@@ -37,9 +37,9 @@ class Post extends Dbh{
  //get All Posts for spesific user Id
 
         public function getAllPostsForOneUser($userid){
-  var_dump($userid);die;
+ 
     //get data from DB for display latest post on top
-            $sql="SELECT * FROM posts WHERE userId=? ORDER BY postCreatedOn DESC" ;
+            $sql="SELECT * FROM posts WHERE userId=$userid ORDER BY postCreatedOn DESC" ;
       //crating statement to prevent SQL injections
              $stmt = $this->connect()->prepare($sql);
         

@@ -36,19 +36,19 @@ var_dump($_SESSION["username"]);
         <?php 
          if (isset ( $_SESSION["id"]) ){
           $admin = $_SESSION["id"];
-          var_dump($admin);
+        //  var_dump($admin);
           if($admin ===1 ){
 
             echo "<li class='nav-item'><a class='nav-link' href='#'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";
-            echo "<li class='nav-item'><a class='nav-link' href='public/logout.php'>logout </a></li>";  
+            echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";  
     
            
           }if($admin !== 1) {
          
             echo "<li class='nav-item'><a class='nav-link' href='logUserView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";
-       echo "<li class='nav-item'><a class='nav-link' href='public/logout.php'>logout </a></li>";
+       echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
           }
         }else{
           // if not log in display signup ans connection
