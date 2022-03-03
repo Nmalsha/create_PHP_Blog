@@ -2,6 +2,7 @@
 session_start();
  // display user name on the profile page
         if(isset($_SESSION["id"])){
+            $userid = $_SESSION["id"];
 echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
 
         } 
@@ -13,7 +14,7 @@ echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
 <!-- log user contnt -->
 <div class="admin_content">
 <div class="button-group">
-  <a href="createPost.php?id=<?php echo $_SESSION["id"]; ?>" class="btn btn-big button_style">Create Post</a>
+  <a href="/users/createpost/<?php echo $userid ?>"  class="btn btn-big button_style">Create Post</a>
  
 </div> 
 <div class="content">
