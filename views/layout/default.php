@@ -1,5 +1,6 @@
 <?php
-var_dump($_SESSION);
+session_start();
+var_dump($_SESSION["username"]);
 ?>
 
 <!DOCTYPE html>
@@ -30,17 +31,38 @@ var_dump($_SESSION);
     <div class="collapse navbar-collapse list" >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="/posts" href="">Accueil</a>
+          <a class="nav-link active" aria-current="" href="/posts">Accueil !!!</a>
         </li>
-        
-        <li class='nav-item'>
-            <a class='nav-link' href='/signups'>Inscrez vous </a>
-        </li>
-        <li class='nav-item'>
-            <a class='nav-link' href='/login'>Se Conneté </a>
-        </li>
+        <?php 
+         if (isset ( $_SESSION["id"]) ){
+          $admin = $_SESSION["id"];
+        //  var_dump($admin);
+          if($admin ===1 ){
 
-     
+            echo "<li class='nav-item'><a class='nav-link' href='#'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+            </a></li>";
+            echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";  
+    
+           
+          }if($admin !== 1) {
+         
+            echo "<li class='nav-item'><a class='nav-link' href='logUserView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+            </a></li>";
+       echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
+          }
+        }else{
+          // if not log in display signup ans connection
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='/signups'>Inscrez vous </a>
+                  </li>";
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='/logins'>Se Conneté </a>
+                  </li>";
+                  }
+        
+        ?>
+          
+             
       </ul>
     </div>
   </div>

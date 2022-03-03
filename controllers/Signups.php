@@ -22,31 +22,31 @@ if(isset($_POST['signup'])){
 
              if(empty($username||$email||$password ||$password2)){
                 // check if the fields are empty
-                        header("location:../signup.php?error=emptyInput");
+                        header("location:/signups?error=emptyInput");
                               throw new \Exception('Empty input');
                     }
                     //check if the username has no charactore epecific
                     if(!preg_match("/^[a-zA-Z0-9]*$/",$username )){
                 // echo "IninvalidUid"
-                        header("location:../signup.php?error=IninvalidUid");
+                        header("location:/signups?error=IninvalidUid");
                         throw new \Exception('Invalid UID');
                     }
                     // check if the email is a valide email
                     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
                         // echo "IninvalidEmail"
-                        header("location:../signup.php?error=IninvalidEmail");
+                        header("location:/signups?error=IninvalidEmail");
                         throw new \Exception('invalidEmail');
                             }
                             //check if the passwords matched
                             if($password !==$password2){
                                 // echo "password dont matched"
-                                header("location:views/layout/default.php?error=passworddontmatched");
+                                header("location:/signups?error=passworddontmatched");
                                 throw new \Exception('passworddontmatched');
                                     }
                                     //check if the user already exist
                                      if(!$this->Signup->checkUser($username,$email)){
                                           // echo "Usernametaken"
-                                      header("location:../signup.php?error=Usernametaken");
+                                      header("location:/signups?error=Usernametaken");
                                          throw new \Exception('Usernametaken');
                                           }
      
