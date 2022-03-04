@@ -81,7 +81,12 @@ public function publicpost($id){
    $this->render('publicpost');
 }
 
+public function delete($id){
+  $this->loadModel('Post');
+   $post = $this->Post->deletePost($id);
 
+   $this->render('delete');
+}
 
 
 }
