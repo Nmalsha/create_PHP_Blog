@@ -130,5 +130,37 @@ $stmt=null;
     } 
 
 
+    public function publicPost($id){
+        $sql="UPDATE  posts SET published = 1   WHERE postId=$id " ;
+
+        $stmt = $this->connect()->prepare($sql);
+        if(!$stmt->execute(array($id))){
+            $stmt=null;
+    
+            throw new \Exception('statement failled');
+
+        }
+        $posts = $stmt->fetch();
+           
+        return $posts;
+        
+
+    }
+ public function deletePost($id){
+
+    $sql="DELETE FROM  posts WHERE postId=$id " ;
+    $stmt = $this->connect()->prepare($sql);
+    if(!$stmt->execute(array($id))){
+        $stmt=null;
+
+        throw new \Exception('statement failled');
+
+    }
+    $posts = $stmt->fetch();
+       
+    return $posts;
+
+
+ }
 
             }

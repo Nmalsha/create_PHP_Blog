@@ -44,13 +44,13 @@ foreach ($posts as $post) { ?>
     <?php 
     //showing public button if the post was not published by the admin
     if($post['published'] == null){
-      var_dump($post['published']);
-
-echo "<td><a href='#' class='delete'>Public</a></td>";
+      
+//passing the id of the clicked post
+echo '<td><a href="/admins/publicpost/'.$post["postId"].'" >Public</a></td>';
     }
     ?>
    
-    <td><a href="#" class="delete">Delete</a></td>
+    <td><a href="/admins/delete/<?php echo $post['postId']?>" class="delete">Delete</a></td>
  
 
 </tr>
