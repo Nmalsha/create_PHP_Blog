@@ -72,6 +72,16 @@ private function uploadImage(){
   
 }
 
+public function publicpost($id){
+
+   //load model/post.php file
+   $this->loadModel('Post');
+   $post = $this->Post->publicPost($id);
+
+   $this->render('publicpost');
+}
+
+
 
 
 }
