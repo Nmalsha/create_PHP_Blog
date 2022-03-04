@@ -36,6 +36,29 @@ $stmt=null;
 
         public function getAllPosts()
         {
+            $sql="SELECT * FROM posts   ORDER BY postCreatedOn DESC" ;
+            $stmt = $this->connect()->prepare($sql);
+                if(!$stmt->execute()){
+                    $stmt=null;
+                     throw new \Exception('statement failled');
+
+                }
+
+                if($stmt->rowCount() == 0){
+                    $stmt=null;
+                    throw new \Exception('User not found');
+    
+                 }
+            $posts = $stmt->fetchAll();
+       
+            return    $posts;
+
+        }
+
+        //get All Published Posts 
+
+        public function getAllPublishedPosts()
+        {
             $sql="SELECT * FROM posts WHERE published=1  ORDER BY postCreatedOn DESC" ;
             $stmt = $this->connect()->prepare($sql);
                 if(!$stmt->execute()){

@@ -39,7 +39,17 @@ foreach ($posts as $post) { ?>
     <td><?php echo $post['postCreatedOn']; ?></td>
     <td><?php echo $post['postTitle'] ;?></td>
     <td><?php echo $post['postChapo']?></td>
-    <td><a href="/admins/index/<?php echo $post['postId']?>" class="edit">Edit</a></td>
+    <td><a href="/admins/editpost/<?php echo $post['postId']?>" class="edit">Edit</a></td>
+    
+    <?php 
+    //showing public button if the post was not published by the admin
+    if($post['published'] == null){
+      var_dump($post['published']);
+
+echo "<td><a href='#' class='delete'>Public</a></td>";
+    }
+    ?>
+   
     <td><a href="#" class="delete">Delete</a></td>
  
 
