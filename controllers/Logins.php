@@ -18,9 +18,21 @@ class Logins extends BaseController{
             }
             //get the user informations from the database after verifying necessary details
             $this->Login->getUser($username,$password); 
-            //passing user id to the url
-           $userid= $_SESSION['id'];
-            header("location:/users/index/".$userid);
+            
+            if (isset($_SESSION['id'])){
+                $isAdmin = $_SESSION["isAdmin"];
+                $userid = $_SESSION["id"];
+                //if the user is admin redirecting to the admin view and passing user id to the url
+                if($isAdmin !== null){
+                    header("location:/admins/index");
+
+                }else{
+                    //if the user is not admin redirecting user to the main page
+                    header("location:/posts");
+                }
+            }
+          
+           
             
         }
      

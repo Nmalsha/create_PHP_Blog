@@ -9,11 +9,55 @@ class Post extends Dbh{
         $this->connect();
     }
 
+//setting values to the database
+public function setPost ($userid,$postTitle,$postChapo,$postContent,$filename){
+    $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //creating statement to prevent SQL injections
+    $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);');
+    
+         
+    if(! $stmt->execute(array($userid,$postTitle,$postChapo,$postContent,$filename))){
+        print_r($stmt->errorInfo());
+        
 
+        // print_r($this->connect()->errorInfo()); 
+        // var_dump($userid,$postTitle,$postChapo,$postContent,$filename );
+        //  var_dump($stmt );
+        //  die;
+        $stmt=null;
+        throw new \PDOException ($stmt->errorInfo()[2]);
+
+    }
+
+$stmt=null;
+}
 
 //get All Posts 
 
         public function getAllPosts()
+        {
+            $sql="SELECT * FROM posts   ORDER BY postCreatedOn DESC" ;
+            $stmt = $this->connect()->prepare($sql);
+                if(!$stmt->execute()){
+                    $stmt=null;
+                     throw new \Exception('statement failled');
+
+                }
+
+                if($stmt->rowCount() == 0){
+                    $stmt=null;
+                    throw new \Exception('User not found');
+    
+                 }
+            $posts = $stmt->fetchAll();
+       
+            return    $posts;
+
+        }
+
+        //get All Published Posts 
+
+        public function getAllPublishedPosts()
         {
             $sql="SELECT * FROM posts WHERE published=1  ORDER BY postCreatedOn DESC" ;
             $stmt = $this->connect()->prepare($sql);

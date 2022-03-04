@@ -1,3 +1,13 @@
+<?php
+session_start();
+ // display user name on the profile page
+        if(isset($_SESSION["id"])){
+            $userid = $_SESSION["id"];
+echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
+
+        } 
+        
+        ?>
 <section class="container-fluid ">
   <div class="container p-5">
     <div class="row ">
