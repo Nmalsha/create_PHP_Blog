@@ -9,7 +9,28 @@ class Post extends Dbh{
         $this->connect();
     }
 
+//setting values to the database
+public function setPost ($userid,$postTitle,$postChapo,$postContent,$filename){
+    $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //creating statement to prevent SQL injections
+    $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);');
+    
+         
+    if(! $stmt->execute(array($userid,$postTitle,$postChapo,$postContent,$filename))){
+        print_r($stmt->errorInfo());
+        
 
+        // print_r($this->connect()->errorInfo()); 
+        // var_dump($userid,$postTitle,$postChapo,$postContent,$filename );
+        //  var_dump($stmt );
+        //  die;
+        $stmt=null;
+        throw new \PDOException ($stmt->errorInfo()[2]);
+
+    }
+
+$stmt=null;
+}
 
 //get All Posts 
 

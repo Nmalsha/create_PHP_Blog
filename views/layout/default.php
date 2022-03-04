@@ -24,7 +24,7 @@ var_dump($_SESSION["username"]);
 
 <nav class="navbar  sticky-top navbar-expand-lg navbar-dark  bg_color">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="/images/logo.png" width="200" alt="logo de la site"/></a>
+    <a class="navbar-brand" href="index.php"><img src="public/images/logo.png" width="200" alt="logo de la site"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,18 +35,19 @@ var_dump($_SESSION["username"]);
         </li>
         <?php 
          if (isset ( $_SESSION["id"]) ){
-          $admin = $_SESSION["id"];
+          $isAdmin = $_SESSION["isAdmin"];
+        
         //  var_dump($admin);
-          if($admin ===1 ){
+          if($isAdmin !== 1 ){
 
-            echo "<li class='nav-item'><a class='nav-link' href='#'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+            echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";
             echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";  
     
            
-          }if($admin !== 1) {
+          }if($isAdmin === 1) {
          
-            echo "<li class='nav-item'><a class='nav-link' href='logUserView.php'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
+            echo "<li class='nav-item'><a class='nav-link' href='#'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"]." 
             </a></li>";
        echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
           }
