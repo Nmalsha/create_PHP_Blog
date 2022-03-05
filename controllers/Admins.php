@@ -87,6 +87,12 @@ public function delete($id){
 
    $this->render('delete');
 }
+public function editpost($id){
 
+  $this->loadModel('Post');
+   $post = $this->Post->getOnePost($id);
+
+   $this->render('editpost',['post'=>$post]);
+}
 
 }

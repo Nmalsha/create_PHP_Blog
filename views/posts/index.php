@@ -17,7 +17,7 @@ echo "<p> BONJOUR " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
           <?php foreach ($posts as $post) { ?>
 
             <div class="card" style="width: 18rem;"  >
-              <img class="card-img-top img_style" src="images/imgactualites.jpg" alt="card image">
+              <img class="card-img-top img_style" src="../../public/images/<?php echo $post['postImage']?>" alt="card image">
                 <div class="card-body">
                   <a  href= "/posts/read/<?php echo $post['postId']?>" ><h5 class="card-title"><?php echo $post['postTitle']?></h5> </a>
                       <p class=""><?php echo $post['postCreatedOn']?></p>
