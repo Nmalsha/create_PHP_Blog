@@ -135,6 +135,7 @@ $stmt=null;
 
         $stmt = $this->connect()->prepare($sql);
         if(!$stmt->execute(array($id))){
+            
             $stmt=null;
     
             throw new \Exception('statement failled');
@@ -162,5 +163,26 @@ $stmt=null;
 
 
  }
+
+ public function editPost($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename){
+    $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql="UPDATE  posts  SET  postTitle='$newPostTitle' ,postChapo='$newPostChapo' ,postContent='$newPostContent', postImage='$newFilename' WHERE postId=$id " ;
+    
+    $stmt = $this->connect()->prepare($sql);
+    
+    if(!$stmt->execute(array($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename))){
+        print_r($stmt->errorInfo());
+        $stmt=null;
+      
+        throw new \PDOException ($stmt->errorInfo()[2]);
+
+    }
+    $posts = $stmt->fetch();
+       
+    return $posts;
+
+
+ }
+
 
             }

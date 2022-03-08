@@ -20,6 +20,12 @@
   text-decoration: none;
 }
 /* index.php*/
+.welcome_msg {
+  display: flex;
+
+  align-content: center;
+  justify-content: center;
+}
 .actualite {
   margin-top: 50px;
 }
@@ -65,7 +71,7 @@ label {
 }
 /* blog.php*/
 .img_style {
-  height: 10rem;
+  height: 11rem;
   border-radius: 10px 10px 0px 0;
   border: 2px solid #124375;
 }
