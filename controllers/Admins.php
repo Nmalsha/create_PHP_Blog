@@ -27,8 +27,7 @@ public function createpost($userid)
      $postImage =($_FILES["fileToUpload"]);
     $filename= $postImage["name"];
     $templateName = $postImage["tmp_name"];    
-
-
+   
     if(empty($postTitle||$postChapo||$postContent )){
         // check if the fields are empty
                 header("location:/createpost?error=emptyInput");
@@ -36,11 +35,11 @@ public function createpost($userid)
             }
     
             if ($filename && $templateName)  {
-                $image= move_uploaded_file($templateName, "public/images/".$filename);
+             $image= move_uploaded_file($templateName, "public/images/".$filename);
+            
                 echo 'image was successfully saved in image file';
              }
-// var_dump($userid,$postTitle,$postChapo,$postContent,$filename);
-// die;
+ 
 
              $this->Post->setPost($userid,$postTitle,$postChapo,$postContent,$filename); 
              echo 'post was successfully saved in the database';
@@ -52,14 +51,15 @@ $this->render('createpost');
 }
 
 // saving the image in images folder
+/*
 private function uploadImage(){
     $result;
     $msg;
      //move image file to the image folder 
     if($this->filename && $this->templateName){
        
-       
-       $image= move_uploaded_file($this->templateName, "public/images/".$this->filename);
+     ;
+       $image= move_uploaded_file($this->templateName, "/public/images/".$this->filename);
       
         $msg = "Image uploaded successfully";
         $result= true;
@@ -71,26 +71,72 @@ private function uploadImage(){
   
   
 }
-
+*/
 public function publicpost($id){
 
    //load model/post.php file
    $this->loadModel('Post');
    $post = $this->Post->publicPost($id);
-
-   $this->render('publicpost');
+   header("location:/admins/index/".$userid);
+  
 }
 
 public function delete($id){
   $this->loadModel('Post');
    $post = $this->Post->deletePost($id);
-
-   $this->render('delete');
+   header("location:/admins/index/".$userid);
+   
 }
+
+
+
 public function editpost($id){
+ 
 
   $this->loadModel('Post');
    $post = $this->Post->getOnePost($id);
+  
+   if(isset($_POST['submit'])){
+    $newPostTitle = htmlspecialchars($_POST["postTitle"]);
+    $newPostChapo = htmlspecialchars($_POST["chapo"]);
+
+ $newPostContent = htmlspecialchars($_POST["contenue"]);
+ $oldImage = ($_POST["image"]);
+
+
+ if(isset($_FILES["fileToUpload"])){
+   $newPostImage =($_FILES["fileToUpload"]);
+   $newFilename = $newPostImage["name"];
+   $newTemplateName = $newPostImage["tmp_name"];
+
+  // $image= move_uploaded_file($newTemplateName, "public/images/".$newFilename);
+  
+ 
+  }
+     $oldImage = ($_POST["image"]);
+   
+      $newFilename =  $oldImage;
+      $image= move_uploaded_file($newTemplateName, "public/images/".$newFilename);
+    // var_dump($newFilename);
+    // die;
+    echo 'image will be the old image';
+    header("location:/admins/index/".$userid);
+//     var_dump($newTemplateName);
+    
+   
+//     echo 'image was successfully saved in image file';
+  
+  
+ 
+  
+  
+  var_dump($newPostTitle,$newPostChapo,$newPostContent);
+
+ 
+  $this->Post->editPost($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename); 
+echo ' The post is successfullt updated';
+
+   }
 
    $this->render('editpost',['post'=>$post]);
 }

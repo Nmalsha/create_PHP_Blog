@@ -18,7 +18,7 @@ echo "<p> BONJOUR ADMIN " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
  
 </div> 
 <div class="content">
-  <h3 class="page_title">My Posts</h3>
+  <h3 class="page_title"> Posts</h3>
 <table>
   <thread>
   <th>Post Id</th>
