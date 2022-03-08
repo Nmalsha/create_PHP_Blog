@@ -3,15 +3,21 @@ session_start();
  // display user name on the profile page
         if(isset($_SESSION["id"])){
             $userid = $_SESSION["id"];
-echo "<p> BONJOUR ADMIN " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
+echo "<p class='welcome_msg'> BONJOUR ADMIN " . $_SESSION["username"]."  ".$_SESSION["id"]." </p>";
 
         } 
         
         ?>
     <div class="loguserwrapper">
 <!-- left side bar -->
-
-<!-- log user contnt -->
+<div class="left_sidebar">
+<ul>
+  <li><a href="">Manage Posts</a></li>
+  <li><a href="adminViewManageUsers.php">Manage Users</a></li>
+ 
+</ul>
+</div>
+<!-- Post contents-->
 <div class="admin_content">
 <div class="button-group">
   <a href="/admins/createpost/<?php echo $userid ?>"  class="btn btn-big button_style">Create Post</a>

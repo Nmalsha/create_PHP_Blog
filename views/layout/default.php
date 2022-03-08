@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION["username"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +19,13 @@ var_dump($_SESSION["username"]);
     <!--Styles -->
    
     <link rel="stylesheet" href="/public/style.css" />
+    <link rel="stylesheet" href="/public//adminStyle.css" />
   </head>
 
 
 <nav class="navbar  sticky-top navbar-expand-lg navbar-dark  bg_color">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="public/images/logo.png" width="200" alt="logo de la site"/></a>
+    <a class="navbar-brand" href="index.php"><img src="/public/images/logo.png" width="200" alt="logo de la site"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,7 +53,7 @@ var_dump($_SESSION["username"]);
        echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
           }
         }else{
-          // if not log in display signup ans connection
+          // if not log in display signup and connection
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='/signups'>Inscrez vous </a>
                   </li>";

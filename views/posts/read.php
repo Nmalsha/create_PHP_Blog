@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
         
 
-            <div class="card" style="width: 40%;"  >
+            <div class="card" style="width: 40%; height:28rem;"  >
               <img class="card-img-top img_style" src="../../public/images/<?php echo $post['postImage']?>" alt="card image">
                 <div class="card-body">
                   <h5 class="card-title"><?php echo $post['postTitle']?></h5>
