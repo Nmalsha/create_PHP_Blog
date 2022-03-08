@@ -1,11 +1,11 @@
 
 <div class="content">
   <h3 class="page_title">Create Posts</h3>
-<form action="" method="post"  enctype="multipart/form-data" >
+    <form action="" method="post"  enctype="multipart/form-data" >
 
-<div class="formwrapp">
+        <div class="formwrapp">
 
-        <div class="col-8 width ">
+            <div class="col-8 width ">
                 <label for="postTitle" class="form-label">Post Title</label>
                 <input type="text" class="form-control"  name="postTitle" aria-describedby="nom-help">
                 <input type="hidden" class="form-control"  name="userid" value="<?php $userid=($_GET["id"]) ; echo $userid;?>">
@@ -28,13 +28,8 @@
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <button type="submit" name="submit" class="btn btn-primary btn_style">Add Post</button>
-</div>
-</form>
+        </div>
+    </form>
 
 </div>
-</div>
-</div>
-      
 
-</body>
-</html>

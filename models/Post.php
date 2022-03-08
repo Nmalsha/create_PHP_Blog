@@ -10,43 +10,37 @@ class Post extends Dbh{
     }
 
 //setting values to the database
-public function setPost ($userid,$postTitle,$postChapo,$postContent,$filename){
-    $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //creating statement to prevent SQL injections
-    $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);');
+    public function setPost ($userid,$postTitle,$postChapo,$postContent,$filename){
+            $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//creating statement to prevent SQL injections
+            $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);');
     
          
-    if(! $stmt->execute(array($userid,$postTitle,$postChapo,$postContent,$filename))){
-        print_r($stmt->errorInfo());
-        
+        if(! $stmt->execute(array($userid,$postTitle,$postChapo,$postContent,$filename))){
+            print_r($stmt->errorInfo());
+            $stmt=null;
+            throw new \PDOException ($stmt->errorInfo()[2]);
 
-        // print_r($this->connect()->errorInfo()); 
-        // var_dump($userid,$postTitle,$postChapo,$postContent,$filename );
-        //  var_dump($stmt );
-        //  die;
-        $stmt=null;
-        throw new \PDOException ($stmt->errorInfo()[2]);
+        }
 
-    }
-
-$stmt=null;
+    $stmt=null;
 }
 
 //get All Posts 
 
-        public function getAllPosts()
+    public function getAllPosts()
         {
             $sql="SELECT * FROM posts   ORDER BY postCreatedOn DESC" ;
             $stmt = $this->connect()->prepare($sql);
-                if(!$stmt->execute()){
-                    $stmt=null;
-                     throw new \Exception('statement failled');
+        if(!$stmt->execute()){
+            $stmt=null;
+            throw new \Exception('statement failled');
 
                 }
 
-                if($stmt->rowCount() == 0){
-                    $stmt=null;
-                    throw new \Exception('User not found');
+        if($stmt->rowCount() == 0){
+            $stmt=null;
+            throw new \Exception('User not found');
     
                  }
             $posts = $stmt->fetchAll();
@@ -55,21 +49,21 @@ $stmt=null;
 
         }
 
-        //get All Published Posts 
+//get All Published Posts 
 
-        public function getAllPublishedPosts()
+    public function getAllPublishedPosts()
         {
             $sql="SELECT * FROM posts WHERE published=1  ORDER BY postCreatedOn DESC" ;
             $stmt = $this->connect()->prepare($sql);
-                if(!$stmt->execute()){
-                    $stmt=null;
-                     throw new \Exception('statement failled');
+        if(!$stmt->execute()){
+            $stmt=null;
+            throw new \Exception('statement failled');
 
                 }
 
-                if($stmt->rowCount() == 0){
-                    $stmt=null;
-                    throw new \Exception('User not found');
+        if($stmt->rowCount() == 0){
+            $stmt=null;
+            throw new \Exception('User not found');
     
                  }
             $posts = $stmt->fetchAll();
@@ -78,25 +72,25 @@ $stmt=null;
 
         }
 
- //get All Posts for spesific user Id
+//get All Posts for spesific user Id
 
-        public function getAllPostsForOneUser($userid){
+    public function getAllPostsForOneUser($userid){
  
-    //get data from DB for display latest post on top
+//get data from DB for display latest post on top
             $sql="SELECT * FROM posts WHERE userId=$userid ORDER BY postCreatedOn DESC" ;
-      //crating statement to prevent SQL injections
-             $stmt = $this->connect()->prepare($sql);
+//crating statement to prevent SQL injections
+            $stmt = $this->connect()->prepare($sql);
         
-                if(!$stmt->execute(array($userid))){
-                    $stmt=null;
+        if(!$stmt->execute(array($userid))){
+            $stmt=null;
             
-                    throw new \Exception('statement failled');
+            throw new \Exception('statement failled');
     
                 }
     
-                if($stmt->rowCount() == 0){
-                    $stmt=null;
-                    throw new \Exception('User not found');
+        if($stmt->rowCount() == 0){
+            $stmt=null;
+            throw new \Exception('User not found');
         
                 }
            $posts = $stmt->fetchAll();
@@ -106,21 +100,21 @@ $stmt=null;
     
     }
 
-    //get One Post
+//get One Post
 
     public function getOnePost($id){
-        $sql="SELECT * FROM posts WHERE postId=$id ";
+            $sql="SELECT * FROM posts WHERE postId=$id ";
        
-        $stmt = $this->connect()->prepare($sql);
-            if(!$stmt->execute()){
-                $stmt=null;
-                throw new \Exception('statement failled');
+            $stmt = $this->connect()->prepare($sql);
+        if(!$stmt->execute()){
+            $stmt=null;
+            throw new \Exception('statement failled');
     
             }
     
-            if($stmt->rowCount() == 0){
-                $stmt=null;
-                throw new \Exception('User not found');
+        if($stmt->rowCount() == 0){
+            $stmt=null;
+            throw new \Exception('User not found');
         
             }
            $posts = $stmt->fetch();
@@ -129,11 +123,11 @@ $stmt=null;
     
     } 
 
-
+//Function to Public the post
     public function publicPost($id){
-        $sql="UPDATE  posts SET published = 1   WHERE postId=$id " ;
+            $sql="UPDATE  posts SET published = 1   WHERE postId=$id " ;
 
-        $stmt = $this->connect()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
         if(!$stmt->execute(array($id))){
             
             $stmt=null;
@@ -141,45 +135,46 @@ $stmt=null;
             throw new \Exception('statement failled');
 
         }
-        $posts = $stmt->fetch();
+            $posts = $stmt->fetch();
            
-        return $posts;
+            return $posts;
         
 
     }
- public function deletePost($id){
+//Function to delete the post
+    public function deletePost($id){
 
-    $sql="DELETE FROM  posts WHERE postId=$id " ;
-    $stmt = $this->connect()->prepare($sql);
+            $sql="DELETE FROM  posts WHERE postId=$id " ;
+            $stmt = $this->connect()->prepare($sql);
     if(!$stmt->execute(array($id))){
-        $stmt=null;
+            $stmt=null;
 
-        throw new \Exception('statement failled');
+            throw new \Exception('statement failled');
 
     }
-    $posts = $stmt->fetch();
+            $posts = $stmt->fetch();
        
-    return $posts;
+            return $posts;
 
 
  }
-
- public function editPost($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename){
-    $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql="UPDATE  posts  SET  postTitle='$newPostTitle' ,postChapo='$newPostChapo' ,postContent='$newPostContent', postImage='$newFilename' WHERE postId=$id " ;
+//Function to edit the post
+    public function editPost($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename){
+            $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql="UPDATE  posts  SET  postTitle='$newPostTitle' ,postChapo='$newPostChapo' ,postContent='$newPostContent', postImage='$newFilename' WHERE postId=$id " ;
     
-    $stmt = $this->connect()->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
     
-    if(!$stmt->execute(array($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename))){
-        print_r($stmt->errorInfo());
-        $stmt=null;
+        if(!$stmt->execute(array($id,$newPostTitle,$newPostChapo,$newPostContent,$newFilename))){
+            print_r($stmt->errorInfo());
+            $stmt=null;
       
-        throw new \PDOException ($stmt->errorInfo()[2]);
+            throw new \PDOException ($stmt->errorInfo()[2]);
 
     }
-    $posts = $stmt->fetch();
+            $posts = $stmt->fetch();
        
-    return $posts;
+            return $posts;
 
 
  }
