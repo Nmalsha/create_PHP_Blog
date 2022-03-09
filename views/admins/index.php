@@ -8,40 +8,36 @@ echo "<p class='welcome_msg'> BONJOUR ADMIN " . $_SESSION["username"]."  ".$_SES
         } 
         
         ?>
-    <div class="loguserwrapper">
+<div class="loguserwrapper">
 <!-- left side bar -->
-<div class="left_sidebar">
-<ul>
-  <li><a href="">Manage Posts</a></li>
-  <li><a href="adminViewManageUsers.php">Manage Users</a></li>
- 
-</ul>
-</div>
+  <div class="left_sidebar">
+    <ul>
+      <li><a href="">Manage Posts</a></li>
+      <li><a href="/admins/manageuser">Manage Users</a></li>
+    </ul>
+  </div>
 <!-- Post contents-->
-<div class="admin_content">
-<div class="button-group">
-  <a href="/admins/createpost/<?php echo $userid ?>"  class="btn btn-big button_style">Create Post</a>
- 
-</div> 
-<div class="content">
-  <h3 class="page_title"> Posts</h3>
-<table>
+  <div class="admin_content">
+    <div class="button-group">
+      <a href="/admins/createpost/<?php echo $userid ?>"  class="btn btn-big button_style">Create Post</a>
+    </div> 
+  <div class="content">
+    <h3 class="page_title"> Posts</h3>
+  <table>
   <thread>
-  <th>Post Id</th>
+    <th>Post Id</th>
     <th>CreatedOn</th>
     <th>Title</th>
     <th>Chapo</th>
     <th colspan="3">Action</th>
-</thread>
-<tbody>
+  </thread>
+  <tbody>
 
 <?php 
-
-
 foreach ($posts as $post) { ?>
 
-  <tr>
-  <td><?php echo $post['postId']; ?></td>
+    <tr>
+    <td><?php echo $post['postId']; ?></td>
     <td><?php echo $post['postCreatedOn']; ?></td>
     <td><?php echo $post['postTitle'] ;?></td>
     <td><?php echo $post['postChapo']?></td>
@@ -51,19 +47,15 @@ foreach ($posts as $post) { ?>
     //showing public button if the post was not published by the admin
     if($post['published'] == null){
       
-//passing the id of the clicked post
-echo '<td><a href="/admins/publicpost/'.$post["postId"].'" >Public</a></td>';
+    //passing the id of the clicked post
+    echo '<td><a href="/admins/publicpost/'.$post["postId"].'" >Public</a></td>';
     }
     ?>
-   
     <td><a href="/admins/delete/<?php echo $post['postId']?>" class="delete">Delete</a></td>
- 
+    </tr>
+    <?php }?>    
+    </tbody>
+  </table>
 
-</tr>
-<?php }?>    
-</tbody>
-</table>
-
-</div>
-</div>
+  </div>
 </div>

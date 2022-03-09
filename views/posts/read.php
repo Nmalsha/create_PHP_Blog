@@ -5,15 +5,15 @@
 
       <h2>Details de Post</h2>
         <div class="row justify-content-center">
-        
+
 
             <div class="card" style="width: 40%; height:28rem;"  >
-              <img class="card-img-top img_style" src="../../public/images/<?php echo $post['postImage']?>" alt="card image">
+              <img class="card-img-top img_style" src="../../public/images/<?php echo $post['postImage'] ?>" alt="card image">
                 <div class="card-body">
-                  <h5 class="card-title"><?php echo $post['postTitle']?></h5>
-                      <p class=""><?php echo $post['postCreatedOn']?></p>
-                      <p class="card-text"><?php echo $post['postChapo']?></p>
-                      <p class=""><?php echo $post['postContent']?></p>
+                  <h5 class="card-title"><?php echo $post['postTitle'] ?></h5>
+                      <p class=""><?php echo $post['postCreatedOn'] ?></p>
+                      <p class="card-text"><?php echo $post['postChapo'] ?></p>
+                      <p class=""><?php echo $post['postContent'] ?></p>
                       <di class="bg-white">
 <div class ="d-flex-row fs-12">
     <div class ="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</div>
@@ -24,10 +24,9 @@
                      </div>
                 </div>
             </div>
-             
+
       </div>
   </div>
 </section>
 
-                     
-          
+
