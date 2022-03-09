@@ -18,9 +18,7 @@ echo "<p class='welcome_msg'> BONJOUR ADMIN " . $_SESSION["username"]."  ".$_SES
   </div>
 <!-- Post contents-->
   <div class="admin_content">
-    <div class="button-group">
-      <a href="/admins/createpost/<?php echo $userid ?>"  class="btn btn-big button_style">Create User</a>
-    </div> 
+    
   <div class="content">
     <h3 class="page_title"> Users</h3>
   <table>
@@ -43,7 +41,7 @@ foreach ($users as $user) { ?>
     <td><?php echo $user['username']; ?></td>
     <td><?php echo $user['email'] ;?></td>
     
-    <td><a href="/admins/edituser/<?php echo $user['userId']?>" class="edit">Edit</a></td>
+   
    
     <td><a href="/admins/deleteuser/<?php echo $user['userId']?>" class="delete">Delete</a></td>
     </tr>

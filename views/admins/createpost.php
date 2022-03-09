@@ -8,19 +8,20 @@
             <div class="col-8 width ">
                 <label for="postTitle" class="form-label">Post Title</label>
                 <input type="text" class="form-control"  name="postTitle" aria-describedby="nom-help">
-                <input type="hidden" class="form-control"  name="userid" value="<?php $userid=($_GET["id"]) ; echo $userid;?>">
+                <input type="hidden" class="form-control"  name="userid" value="<?php $userid = ($_GET["id"]);
+echo $userid;?>">
             </div>
             <br>
             <div class="col-8 width">
                 <label for="chapo" class="form-label">Le chapo</label>
                 <input type="text" class="form-control"  name="chapo" aria-describedby="prenom-help">
-                
+
             </div>
             <br>
             <div class="col-8 width">
                 <label for="contenue" class="form-label">Contenue</label>
                 <textarea class="form-control" placeholder="Exprimez vous"  name="contenue"></textarea>
-                
+
             </div>
             <br>
             <div class="col-8 width">
