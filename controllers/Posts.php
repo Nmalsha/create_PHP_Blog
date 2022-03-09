@@ -27,4 +27,16 @@ class Posts extends BaseController
         $this->render('read', ['post' => $post]);
     }
 
+    public function comment($postid)
+    {
+        echo $postid;
+        $this->loadModel('Comment');
+        $comment = $_POST['comment'];
+        $userId = $_POST['userid'];
+
+        $this->Comment->createComment($userId, $postid, $comment);
+        header("location:/posts/read/" . $postid);
+
+    }
+
 }
