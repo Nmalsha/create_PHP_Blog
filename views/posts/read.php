@@ -22,18 +22,27 @@ var_dump($_SESSION['username'])
                 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
+<?php// var_dump($comments);?>
+<?php
+if (isset($comments)) {
+    foreach ($comments as $comment) {
 
-
+        ?>
             <div class="d-flex flex-column comment-section">
                 <div class="bg-white p-2">
 
-                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                        <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name"><?php echo $comment['username'] ?></span><span class="date text-black-50"><?php echo $comment['createdOn'] ?></span></div>
                     </div>
                     <div class="mt-2">
-                        <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p class="comment-text"><?php echo $comment['comment'] ?></p>
                     </div>
                 </div>
-
+                <?php
+}
+} else {
+    echo "No comments yet";
+}
+?>
 
                 <div class="bg-white">
                     <div class="d-flex flex-row fs-12">
@@ -47,7 +56,8 @@ var_dump($_SESSION['username'])
     echo "<div class='bg-light p-2'>";
     echo '<form method="post" action="/posts/comment/' . $post["postId"] . '" >';
     echo " <div class='d-flex flex-row align-items-start'><textarea name='comment' class='form-control ml-1 shadow-none textarea'></textarea></div>";
-    echo "<input  name='userid' type='hidden' value='" . $_SESSION['id'] . "'>";
+    echo "<input  name='userId' type='hidden' value='" . $_SESSION['id'] . "'>";
+    echo "<input  name='username' type='hidden' value='" . $_SESSION['username'] . "'>";
     echo "<div class='mt-2 text-right'><button class='btn btn-primary btn-sm shadow-none' type='submit'>Post comment</button></div>";
     echo "</form>";
     echo "</div>";
