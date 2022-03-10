@@ -14,7 +14,7 @@ if (isset($_SESSION["id"])) {
     <ul>
       <li><a href="">Manage Posts</a></li>
       <li><a href="/admins/manageuser">Manage Users</a></li>
-      <li><a href="/admins/manageuser">Manage Comments</a></li>
+      <li><a href="/admins/managecomment">Manage Comments</a></li>
     </ul>
   </div>
 <!-- Post contents-->

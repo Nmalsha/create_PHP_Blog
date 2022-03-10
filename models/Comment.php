@@ -46,4 +46,41 @@ class Comment extends Dbh
 
     }
 
+    public function getAllComment()
+    {
+        $sql = "SELECT * FROM comments ORDER BY createdOn DESC";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            throw new \Exception('statement failled');
+
+        }
+
+        $comments = $stmt->fetchAll();
+
+        return $comments;
+
+    }
+
+    //Function to Public the comment
+    public function publicComment($id)
+    {
+        $sql = "UPDATE  comments SET published = 1   WHERE commentID=$id ";
+
+        $stmt = $this->connect()->prepare($sql);
+        if (!$stmt->execute(array($id))) {
+
+            $stmt = null;
+
+            throw new \Exception('statement failled');
+
+        }
+        $comments = $stmt->fetch();
+
+        return $comments;
+
+    }
+
 }

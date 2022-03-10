@@ -127,4 +127,27 @@ class Admins extends BaseController
 
     }
 
+    public function managecomment()
+    {
+        // load model/Login.php file
+        $this->loadModel('Comment');
+        // and get the function
+        $comments = $this->Comment->getAllComment();
+
+        //rending the log user view
+        $this->render('managecomment', ['comments' => $comments]);
+
+    }
+
+    //Public the post
+    public function publicComment($id)
+    {
+
+        //load model/post.php file
+        $this->loadModel('Comment');
+        $Comment = $this->Comment->publicComment($id);
+        header("location:/admins/managecomment");
+
+    }
+
 }
