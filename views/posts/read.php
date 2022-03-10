@@ -42,19 +42,19 @@ var_dump($_SESSION['username'])
 
                     </div>
                 </div>
-
-<?php if (isset($_SESSION["id"])){
-echo "<div class='bg-light p-2'>
-<form method='post' action='/posts/comment/<?php echo $post['postId'] ?>' >
-
-
-
-";
-
-
+  <!---Display comment section only for the logged users --->
+<?php if (isset($_SESSION["id"])) {
+    echo "<div class='bg-light p-2'>";
+    echo '<form method="post" action="/posts/comment/' . $post["postId"] . '" >';
+    echo " <div class='d-flex flex-row align-items-start'><textarea name='comment' class='form-control ml-1 shadow-none textarea'></textarea></div>";
+    echo "<input  name='userid' type='hidden' value='" . $_SESSION['id'] . "'>";
+    echo "<div class='mt-2 text-right'><button class='btn btn-primary btn-sm shadow-none' type='submit'>Post comment</button></div>";
+    echo "</form>";
+    echo "</div>";
 }
 ?>
-                <div class="bg-light p-2">
+
+                <!-- <div class="bg-light p-2">
 
                 <form method="post" action="/posts/comment/<?php echo $post['postId'] ?>" >
                     <div class="d-flex flex-row align-items-start"><textarea name="comment" class="form-control ml-1 shadow-none textarea"></textarea></div>
@@ -64,7 +64,7 @@ echo "<div class='bg-light p-2'>
                 </form>
 
 
-                </div>
+                </div> -->
 
             </div>
         </div>
