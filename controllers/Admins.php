@@ -60,15 +60,19 @@ class Admins extends BaseController
         header("location:/admins/index/" . $userid);
 
     }
-//Delete post
+//Delete post with comments
     public function delete($id)
     {
+        //load model/post.php file
         $this->loadModel('Post');
         $post = $this->Post->deletePost($id);
+//load model/Comment.php file
+        $this->loadModel('Comment');
+        $comments = $this->Comment->deleteCommentsWithPost($id);
         header("location:/admins/index/" . $userid);
 
     }
-
+//Edit post
     public function editpost($id)
     {
 
@@ -119,11 +123,48 @@ class Admins extends BaseController
 
     public function deleteuser($id)
     {
-
+        // load model/Login.php file
         $this->loadModel('Login');
+        // and get the function
         $user = $this->Login->deleteUser($id);
         echo "User successfully deleted";
         header("location:/admins/manageuser/");
+
+    }
+
+    public function managecomment()
+    {
+        // load model/Login.php file
+        $this->loadModel('Comment');
+        // and get the function
+        $comments = $this->Comment->getAllComment();
+
+        //rending the log user view
+        $this->render('managecomment', ['comments' => $comments]);
+
+    }
+
+    //Public the post
+    public function publicComment($id)
+    {
+
+        //load model/Comment.php file
+        $this->loadModel('Comment');
+        // and get the function
+        $Comment = $this->Comment->publicComment($id);
+        header("location:/admins/managecomment");
+
+    }
+
+    public function deletecomment($id)
+    {
+        echo $id;
+        //load model/Comment.php file
+        $this->loadModel('Comment');
+        // and get the function
+        $commente = $this->Comment->deleteComment($id);
+        // echo "User successfully deleted";
+        header("location:/admins/managecomment/");
 
     }
 
