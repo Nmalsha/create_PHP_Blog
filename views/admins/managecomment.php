@@ -56,7 +56,7 @@ foreach ($comments as $comment) {?>
         echo '<td><a href="/admins/publiccomment/' . $comment["commentID"] . '" >Public</a></td>';
     }
     ?>
-    <td><a href="/admins/deleteuser/<?php echo $user['userId'] ?>" class="delete">Delete</a></td>
+    <td><a href="/admins/deletecomment/<?php echo $comment['commentID'] ?>" class="delete">Delete</a></td>
     </tr>
     <?php }?>
     </tbody>

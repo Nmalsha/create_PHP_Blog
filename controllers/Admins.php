@@ -150,4 +150,14 @@ class Admins extends BaseController
 
     }
 
+    public function deletecomment($id)
+    {
+        echo $id;
+        $this->loadModel('Comment');
+        $commente = $this->Comment->deleteComment($id);
+        // echo "User successfully deleted";
+        header("location:/admins/managecomment/");
+
+    }
+
 }

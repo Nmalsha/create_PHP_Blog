@@ -83,4 +83,23 @@ class Comment extends Dbh
 
     }
 
+    //Function to delete the comment
+    public function deleteComment($id)
+    {
+        $sql = "DELETE FROM  comments WHERE commentID=$id ";
+
+        $stmt = $this->connect()->prepare($sql);
+        if (!$stmt->execute(array($id))) {
+
+            $stmt = null;
+
+            throw new \Exception('statement failled');
+
+        }
+        $comments = $stmt->fetch();
+
+        return $comments;
+
+    }
+
 }
