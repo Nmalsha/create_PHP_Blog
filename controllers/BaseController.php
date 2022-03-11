@@ -16,8 +16,6 @@ abstract class BaseController
     public function render(string $fichier, array $data = [])
     {
         extract($data);
-        // var_dump($posts);
-        // die;
 
         //Output buffer start
         ob_start();

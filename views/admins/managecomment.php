@@ -49,8 +49,8 @@ foreach ($comments as $comment) {?>
 
 
     <?php
-//showing public button if the post was not published by the admin
-    if ($comment['published'] == null) {
+//showing public button if the comment was not published by the admin
+    if ($comment['published'] === null) {
 
         //passing the id of the clicked comment
         echo '<td><a href="/admins/publiccomment/' . $comment["commentID"] . '" >Public</a></td>';

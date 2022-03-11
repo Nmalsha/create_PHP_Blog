@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION['username'])
+
 ?>
              <section class="container-fluid ">
   <div class="container p-5">
@@ -22,7 +22,7 @@ var_dump($_SESSION['username'])
                 <div class="container mt-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
-<?php// var_dump($comments);?>
+
 <?php
 if (isset($comments)) {
     foreach ($comments as $comment) {

@@ -1,5 +1,4 @@
 <?php
-//session_start();
 
 ?>
 
@@ -41,14 +40,13 @@
 if (isset($_SESSION["id"])) {
     $isAdmin = $_SESSION["isAdmin"];
 
-    //  var_dump($admin);
     if ($isAdmin == 1) {
 
         echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
             </a></li>";
         echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
 
-    }if ($isAdmin == null) {
+    }if ($isAdmin === null) {
 
         echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
             </a></li>";

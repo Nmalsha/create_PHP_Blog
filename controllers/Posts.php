@@ -8,8 +8,6 @@ class Posts extends BaseController
 
         $this->loadModel('Post');
 
-        // $template = $this->twig->load('posts/index.html');
-        // echo $template->render([]);
         $posts = $this->Post->getAllPublishedPosts();
 
         //calling the index views  to display the posts
@@ -26,9 +24,7 @@ class Posts extends BaseController
         $this->loadModel('Comment');
         $comments = $this->Comment->getAllPublishedComment($id);
         $this->loadModel('Login');
-        // $users = $this->Login->getAllPublishedComment($id);
-        // var_dump($comments);
-        // die;
+
         //calling to read post view
         $this->render('read', ['post' => $post, 'comments' => $comments]);
     }

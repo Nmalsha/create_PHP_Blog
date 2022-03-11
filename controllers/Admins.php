@@ -163,7 +163,7 @@ class Admins extends BaseController
         $this->loadModel('Comment');
         // and get the function
         $commente = $this->Comment->deleteComment($id);
-        // echo "User successfully deleted";
+
         header("location:/admins/managecomment/");
 
     }
