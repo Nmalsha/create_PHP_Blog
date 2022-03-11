@@ -28,7 +28,6 @@ class Login extends Dbh
 //if has records check if the passwords are matching
 
         $hashPassword = $stmt->fetchAll();
-//return  $hashPassword[0]["passwords"];
 
         $checkPwd = password_verify($password, $hashPassword[0]["passwords"]);
 

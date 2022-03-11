@@ -6,7 +6,6 @@ class Logins extends BaseController
     public function index()
     {
         $this->loadModel('Login');
-        // $this->loadModel('Post');
 
         if (isset($_POST['login'])) {
             $username = $_POST["username"];

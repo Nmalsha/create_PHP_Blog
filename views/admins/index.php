@@ -46,7 +46,7 @@ foreach ($posts as $post) {?>
 
     <?php
 //showing public button if the post was not published by the admin
-    if ($post['published'] == null) {
+    if ($post['published'] === null) {
 
         //passing the id of the clicked post
         echo '<td><a href="/admins/publicpost/' . $post["postId"] . '" >Public</a></td>';
