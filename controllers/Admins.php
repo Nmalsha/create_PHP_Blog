@@ -60,11 +60,14 @@ class Admins extends BaseController
         header("location:/admins/index/" . $userid);
 
     }
-//Delete post
+//Delete post with comments
     public function delete($id)
     {
         $this->loadModel('Post');
         $post = $this->Post->deletePost($id);
+
+        $this->loadModel('Comment');
+        $comments = $this->Comment->deleteCommentsWithPost($id);
         header("location:/admins/index/" . $userid);
 
     }

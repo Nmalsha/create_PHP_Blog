@@ -102,4 +102,23 @@ class Comment extends Dbh
 
     }
 
+    //Function to delete the comments  when deleting the posts
+    public function deleteCommentsWithPost($id)
+    {
+        $sql = "DELETE FROM  comments WHERE postId=$id ";
+
+        $stmt = $this->connect()->prepare($sql);
+        if (!$stmt->execute(array($id))) {
+
+            $stmt = null;
+
+            throw new \Exception('statement failled');
+
+        }
+        $comments = $stmt->fetch();
+
+        return $comments;
+
+    }
+
 }
