@@ -17,8 +17,6 @@ class Comment extends Dbh
 
         if (!$stmt->execute(array($userId, $username, $postid, $comment))) {
 
-            print_r($stmt->errorInfo());
-
             $stmt = null;
             throw new \PDOException($stmt->errorInfo()[2]);
 

@@ -18,7 +18,7 @@ class Post extends Dbh
         $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);');
 
         if (!$stmt->execute(array($userid, $postTitle, $postChapo, $postContent, $filename))) {
-            print_r($stmt->errorInfo());
+
             $stmt = null;
             throw new \PDOException($stmt->errorInfo()[2]);
 
@@ -169,7 +169,7 @@ class Post extends Dbh
         $stmt = $this->connect()->prepare($sql);
 
         if (!$stmt->execute(array($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename))) {
-            print_r($stmt->errorInfo());
+
             $stmt = null;
 
             throw new \PDOException($stmt->errorInfo()[2]);

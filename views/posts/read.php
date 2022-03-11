@@ -64,17 +64,6 @@ if (isset($comments)) {
 }
 ?>
 
-                <!-- <div class="bg-light p-2">
-
-                <form method="post" action="/posts/comment/<?php echo $post['postId'] ?>" >
-                    <div class="d-flex flex-row align-items-start"><textarea name="comment" class="form-control ml-1 shadow-none textarea"></textarea></div>
-                    <input  name="userid" type="hidden" value="<?php echo $_SESSION['id'] ?>">
-
-                    <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit">Post comment</button></div>
-                </form>
-
-
-                </div> -->
 
             </div>
         </div>
