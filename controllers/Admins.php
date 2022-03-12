@@ -19,12 +19,12 @@ class Admins extends BaseController
         //load model/post.php file
         $this->loadModel('Post');
 
-        if (isset($_POST['submit'])) {
+        if ($this->request->get('submit') !== null) {
 
-            $postTitle = htmlspecialchars($_POST["postTitle"]);
-            $postChapo = htmlspecialchars($_POST["chapo"]);
+            $postTitle = htmlspecialchars($this->request->get('postTitle'));
+            $postChapo = htmlspecialchars($this->request->get('chapo'));
+            $postContent = htmlspecialchars($this->request->get('contenue'));
 
-            $postContent = htmlspecialchars($_POST["contenue"]);
             //image file
             $postImage = ($_FILES["fileToUpload"]);
             $filename = $postImage["name"];
@@ -79,11 +79,12 @@ class Admins extends BaseController
         $this->loadModel('Post');
         $post = $this->Post->getOnePost($id);
         //Catching edited infos
-        if (isset($_POST['submit'])) {
-            $newPostTitle = htmlspecialchars($_POST["postTitle"]);
-            $newPostChapo = htmlspecialchars($_POST["chapo"]);
-            $newPostContent = htmlspecialchars($_POST["contenue"]);
-            $oldImage = ($_POST["image"]);
+        if ($this->request->get('submit') !== null) {
+
+            $newPostTitle = htmlspecialchars($this->request->get('postTitle'));
+            $newPostChapo = htmlspecialchars($this->request->get('chapo'));
+            $newPostContent = htmlspecialchars($this->request->get('contenue'));
+            $oldImage = ($this->request->get('image'));
 
 //if the user upload a image file
             if (isset($_FILES["fileToUpload"])) {
@@ -93,7 +94,7 @@ class Admins extends BaseController
 
             }
             // if the user dont update a new image , get the old image
-            $oldImage = ($_POST["image"]);
+            $oldImage = ($this->request->get('image'));
             $newFilename = $oldImage;
             //save new image to the DB
             $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);

@@ -28,7 +28,7 @@ if (isset($_SESSION["id"])) {
 
     <th>User Name</th>
     <th>Email</th>
-    <th colspan="3">Action</th>
+
   </thread>
   <tbody>
 
@@ -43,7 +43,6 @@ foreach ($users as $user) {?>
 
 
 
-    <td><a href="/admins/deleteuser/<?php echo $user['userId'] ?>" class="delete">Delete</a></td>
     </tr>
     <?php }?>
     </tbody>

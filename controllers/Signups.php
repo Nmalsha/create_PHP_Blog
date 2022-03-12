@@ -8,12 +8,13 @@ class Signups extends BaseController
         //loading model signup
         $this->loadModel('Signup');
 
-        if (isset($_POST['signup'])) {
+        if ($this->request->get('signup') !== null) {
 //getting user inserted data converting special caractores specific in to html format -to prevent XSS attack
-            $username = htmlspecialchars($_POST["username"]);
-            $email = htmlspecialchars($_POST["email"]);
-            $password = htmlspecialchars($_POST["password1"]);
-            $password2 = htmlspecialchars($_POST["password2"]);
+            $username = htmlspecialchars($this->request->get('username'));
+
+            $email = htmlspecialchars($this->request->get('email'));
+            $password = htmlspecialchars($this->request->get('password1'));
+            $password2 = htmlspecialchars($this->request->get('password2'));
 
             if (empty($username || $email || $password || $password2)) {
                 // check if the fields are empty

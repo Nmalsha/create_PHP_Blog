@@ -1,7 +1,18 @@
 <?php
+use Symfony\Component\HttpFoundation\Request;
 
 abstract class BaseController
 {
+
+    protected $request;
+
+    public function __construct()
+    {
+
+        $this->request = Request::createFromGlobals();
+        // var_dump($this->request->query->get('id'));
+        // die('stop');
+    }
 
     public function loadModel(string $model)
     {

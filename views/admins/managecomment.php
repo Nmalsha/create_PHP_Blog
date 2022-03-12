@@ -26,7 +26,7 @@ if (isset($_SESSION["id"])) {
   <thread>
     <th>Comment Id</th>
     <th>Created On</th>
-    <th>User Id</th>
+
     <th>User Name</th>
     <th>Post Id</th>
     <th>Comment</th>
@@ -42,7 +42,7 @@ foreach ($comments as $comment) {?>
     <tr>
     <td><?php echo $comment['commentID']; ?></td>
     <td><?php echo $comment['createdOn']; ?></td>
-    <td><?php echo $comment['userId']; ?></td>
+
     <td><?php echo $comment['username']; ?></td>
     <td><?php echo $comment['postId']; ?></td>
     <td><?php echo $comment['comment']; ?></td>
