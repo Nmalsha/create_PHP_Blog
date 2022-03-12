@@ -44,13 +44,13 @@ if (isset($_SESSION["id"])) {
 
         echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
             </a></li>";
-        echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
+        echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
 
     }if ($isAdmin === null) {
 
         echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
             </a></li>";
-        echo "<li class='nav-item'><a class='nav-link' href='/public/logout.php'>logout </a></li>";
+        echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
     }
 } else {
     // if not log in display signup and connection
@@ -69,9 +69,19 @@ if (isset($_SESSION["id"])) {
     </div>
   </div>
 </nav>
+<body>
 <main>
 
 <?=$content?>
 
 </main>
 
+
+<footer class="bg-light text-center text-lg-start mt-auto">
+  <div class="text-center p-3">
+    © 2022 Copyright:
+    <a class="text-dark" href="https://openclassrooms.com/">OpenClassrooms</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -33,9 +33,9 @@ class Posts extends BaseController
     {
         echo $postid;
         $this->loadModel('Comment');
-        $comment = $_POST['comment'];
-        $userId = $_POST['userId'];
-        $username = $_POST['username'];
+        $comment = $this->request->get('comment');
+        $userId = $this->request->get('userId');
+        $username = $this->request->get('username');
 
         $this->Comment->createComment($userId, $username, $postid, $comment);
         header("location:/posts/read/" . $postid);

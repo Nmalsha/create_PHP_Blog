@@ -7,9 +7,9 @@ class Logins extends BaseController
     {
         $this->loadModel('Login');
 
-        if (isset($_POST['login'])) {
-            $username = $_POST["username"];
-            $password = $_POST["password"];
+        if ($this->request->get('login') !== null) {
+            $username = $this->request->get('username');
+            $password = $this->request->get('password');
 
             if (empty($username) || empty($password)) {
 

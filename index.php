@@ -1,11 +1,11 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-ini_set('display_errors', true);
-ini_set('display_startup_errors', true);
+//require __DIR__ . '/vendor/autoload.php';
 //replace index.php to ""
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
-
+require ROOT . '/vendor/autoload.php';
 require_once ROOT . '/controllers/BaseController.php';
 require_once ROOT . '/models/Dbh.php';
 
@@ -39,5 +39,5 @@ if ($params[1] !== "") {
     }
 
 } else {
-
+    die('stop');
 }
