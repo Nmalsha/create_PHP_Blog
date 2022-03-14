@@ -28,6 +28,16 @@
 }
 .actualite {
   margin-top: 50px;
+  height: 250px;
+}
+.padding {
+  padding: 10px;
+}
+.container_styles {
+  border: 2px solid #124375;
+
+  padding-left: 0;
+  padding-right: 0;
 }
 .contact_form {
   margin-top: 50px;

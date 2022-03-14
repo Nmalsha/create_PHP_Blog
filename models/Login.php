@@ -49,21 +49,39 @@ class Login extends Dbh
 
             }
             $user = $stmt->fetchAll();
-/* Configure le limiteur de cache à 'private' */
+// /* Configure le limiteur de cache à 'private' */
 
             session_cache_limiter('private');
             $cache_limiter = session_cache_limiter();
-
-/* Configure le délai d'expiration à 30 minutes */
-            session_cache_expire(30);
-            $cache_expire = session_cache_expire();
-
             session_start();
             $_SESSION["id"] = $user[0]["userId"];
             $userid = $_SESSION["id"];
             $_SESSION["username"] = $user[0]["username"];
 
             $_SESSION["isAdmin"] = $user[0]["isAdmin"];
+
+            //session_start();
+            // $session = new Session();
+            // $session->start();
+            // $session->set('id', $user[0]["userId"]);
+            // $userid = $session->get('id');
+            // var_dump($userid);
+            // die;
+            // /* Configure le délai d'expiration à 30 minutes */
+            // session_cache_expire(30);
+            // $cache_expire = session_cache_expire();
+
+            //$_SESSION["id"] = $user[0]["userId"];
+            // $session->set('id', $user[0]["userId"]);
+            // $userid = $session["id"];
+            // var_dump($userid);
+            // die;
+            //$userid = $session->get('id');
+
+            // $session->set('username', $user[0]["username"]);
+            // //$_SESSION["username"] = $user[0]["username"];
+            // $session->set('isAdmin', $user[0]["isAdmin"]);
+            // //$_SESSION["isAdmin"] = $user[0]["isAdmin"];
 
             $stmt = null;
         }

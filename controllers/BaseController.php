@@ -1,10 +1,13 @@
 <?php
+
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 abstract class BaseController
 {
 
     protected $request;
+    protected $session;
 
     public function __construct()
     {
@@ -12,6 +15,8 @@ abstract class BaseController
         $this->request = Request::createFromGlobals();
         // var_dump($this->request->query->get('id'));
         // die('stop');
+        $session = new Session();
+        $session->start();
     }
 
     public function loadModel(string $model)

@@ -23,20 +23,6 @@
                             <p> pas inscrit ? <a href="/signups">Inscrez-vous</a>
                 <div>
 
-            <?php
-// error handling
-
-if (isset($_GET["error"])) {
-
-    if ($_GET["error"] == "emptyInput") {
-        echo "<p>Remplieez tous les champs</p>";
-
-    } else if ($_GET["error"] == "wronglogin") {
-        echo "<p>Indentifiant/motdepass invalide</p>";
-    }
-
-}
-?>
 
 
             </form>
