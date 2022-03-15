@@ -1,31 +1,44 @@
-<section class="container-fluid actualite">
 
-      <div class="container container_styles">
+<?php
+// display user name on the profile page
+if (isset($_SESSION["id"])) {
+    $userid = $_SESSION["id"];
+    echo "<p class='welcome_msg margins'> BONJOUR " . $_SESSION["username"] . "  " . $_SESSION["id"] . " </p>"; // USER ID FOR TESTING DELETE LATER
+
+}
+?>
+
+
+      <div class="container container_styles margins">
+
       <h1 class="form_action">Bienvenue</h1>
         <div class="row padding">
-    <article class="col-5 ">
+    <div class="col-4 ">
         <h5>Bienvenue dans le site de Blog Post développer par SINHALAGE Malsha</h5>
-</article>
-    <aside class="col-6 ">
+</div>
+    <div class="col-4 ">
     <h5>Mon lien social</h5>
     <ul>
-   <li> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
-   <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-   <li> <a href="#"><i class="fab fa-instagram"></i></a></li>
-</ul>
-<center>
-        <h2 style="color:green;">Voir mon CV</h2>
+   <li> <a href="https://github.com/Nmalsha/create_PHP_Blog"><i class="fab fa-github"></i></a></li>
+   <li> <a href="https://www.linkedin.com/in/malsha-sinhalage-977406197/"><i class="fa fa-linkedin"></i></a></li>
 
-        <a href="/public/CV_Malsha.pdf">Download PDF Now</a></center>
-</aside>
+</ul>
+
+</div>
+<div class="col-4 ">
+<div>
+        <h5 style="color:green;">Voir mon CV</h5>
+
+        <a href="/public/CV_Malsha.pdf">Download PDF Now</a></div>
 </div>
 </div>
-</section>
-<section class="container-fluid contact_form">
-      <div class="container ">
+</div>
+
+
+      <div class="container margins">
         <div class="row">
 
-    <aside class="col-9">
+    <div class="col-md-9 col-sm-12 ">
 
         <form method="post" action="accueil/form" >
         <h1 class="form_action">Contactez nous</h1>
@@ -56,7 +69,7 @@
 </div>
         </form>
 
-</aside>
 </div>
 </div>
-</section>
+</div>
+

@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 // display user name on the profile page
 if (isset($_SESSION["id"])) {
     $userid = $_SESSION["id"];

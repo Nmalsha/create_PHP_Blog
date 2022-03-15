@@ -1,8 +1,7 @@
-<section class="container-fluid actualite">
-      <div class="container">
+
+      <div class="container margins">
         <div class="row">
-    <article class="col-3">
-</article>
+
     <aside class="col-9">
 
         <form  method="post" action="/Signups">
@@ -46,5 +45,3 @@
 </aside>
 </div>
 </div>
-
-</section>

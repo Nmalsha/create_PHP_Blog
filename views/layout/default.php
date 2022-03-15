@@ -29,7 +29,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse list" >
+    <div class="collapse navbar-collapse list " id ="navbarSupportedContent"  >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
       <a class="nav-link active" aria-current="" href="/accueil">Accueil</a>
@@ -77,12 +77,34 @@ if (isset($_SESSION["id"])) {
 
 </main>
 
+<section class="footer margins">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #0a4275;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Admistration</span>
+          <a href="/logins" ><button type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+          </button></a>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
 
-<!-- <footer class="bg-light text-center text-lg-start mt-auto">
-  <div class="text-center p-3">
-    © 2022 Copyright:
-    <a class="text-dark" href="https://openclassrooms.com/">OpenClassrooms</a>
-  </div>
-</footer> -->
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://openclassrooms.com/fr/">openclassrooms.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
+
 </body>
+
 </html>

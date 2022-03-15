@@ -1,5 +1,5 @@
-<section class="container-fluid actualite">
-    <div class="container">
+
+    <div class="container margins">
         <div class="row">
 
         <aside class="col-9">
@@ -30,4 +30,3 @@
         </aside>
         </div>
     </div>
-</section>

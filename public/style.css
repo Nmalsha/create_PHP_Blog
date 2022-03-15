@@ -19,12 +19,17 @@
   color: aliceblue;
   text-decoration: none;
 }
-/* index.php*/
+/* Accueil.php*/
+.margins {
+  margin-top: 100px;
+}
 .welcome_msg {
   display: flex;
-
+  font-size: 25px;
   align-content: center;
   justify-content: center;
+  color: #124375;
+  font-weight: bold;
 }
 .actualite {
   margin-top: 50px;
@@ -40,7 +45,7 @@
   padding-right: 0;
 }
 .contact_form {
-  margin-top: 50px;
+  margin-top: 90px;
 }
 /* Form styling*/
 .form_action {
@@ -87,3 +92,5 @@ label {
 }
 
 /* PAGE ACCUEILS*/
+
+/* FOOTER*/

@@ -10,7 +10,7 @@ class Accueil extends BaseController
         $this->render('index');
 
     }
-
+//sending email if someone want to contact me true the contact form
     public function form()
     {
         $errors = [];
@@ -38,7 +38,5 @@ class Accueil extends BaseController
         }
 
     }
-    //calling to read post view
-    //$this->render('index');
 
 }
