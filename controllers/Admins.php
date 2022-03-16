@@ -27,9 +27,7 @@ class Admins extends BaseController
 
             //image file
             $postImage = ($this->files->get["fileToUpload"]);
-            var_dump($postImag);
 
-            die;
             $filename = $postImage["name"];
             $templateName = $postImage["tmp_name"];
 

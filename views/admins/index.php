@@ -1,9 +1,12 @@
 <?php
-//session_start();
-// display user name on the profile page
-if (isset($_SESSION["id"])) {
-    $userid = $_SESSION["id"];
-    echo "<p class='welcome_msg'> BONJOUR ADMIN " . $_SESSION["username"] . "  " . $_SESSION["id"] . " </p>";
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+// var_dump($session->get('username'));
+$userid = $session->get('id');
+
+if ($userid !== null) {
+    $sessionUsername = $session->get('username');
+    echo "<p class='welcome_msg'> BONJOUR ADMIN " . $sessionUsername . "  " . $userid . " </p>";
 
 }
 

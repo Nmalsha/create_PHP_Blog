@@ -1,6 +1,9 @@
 <?php
-// var_dump($session->get('username'));
-// var_dump($session->get('id'));
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+$sessionUsername = $session->get('username');
+$sessionId = $session->get('id');
+
 ?>
 
 <!DOCTYPE html>
@@ -38,18 +41,18 @@
           <a class="nav-link active" aria-current="" href="/posts">Blogs</a>
         </li>
         <?php
-if (isset($_SESSION["id"])) {
-    $isAdmin = $_SESSION["isAdmin"];
+if ($sessionId !== null) {
+    $isAdmin = $session->get('isAdmin');
 
     if ($isAdmin == 1) {
 
-        echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
+        echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $sessionUsername . "
             </a></li>";
         echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
 
     }if ($isAdmin === null) {
 
-        echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
+        echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $sessionUsername . "
             </a></li>";
         echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
     }

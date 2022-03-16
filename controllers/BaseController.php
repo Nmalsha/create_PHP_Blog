@@ -2,19 +2,16 @@
 
 use Symfony\Component\HttpFoundation\Request;
 
-abstract class BaseController
+class BaseController
 {
 
     protected $request;
+    protected $requestStack;
 
     public function __construct()
     {
 
         $this->request = Request::createFromGlobals();
-        //  $this->requestStack = RequestStack::getSession();
-        // $this->request->getSession();
-        // var_dump($this->request->query->get('id'));
-        // die('stop');
 
     }
 

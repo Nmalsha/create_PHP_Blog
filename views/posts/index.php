@@ -1,11 +1,12 @@
 <?php
-//session_start();
-var_dump($sessionUserid);
-die;
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+$sessionId = $session->get('id');
+
 // display user name on the profile page
-if (isset($_SESSION["id"])) {
-    $userid = $_SESSION["id"];
-    echo "<p class='welcome_msg margins'> BONJOUR " . $_SESSION["username"] . "  " . $_SESSION["id"] . " </p>"; // USER ID FOR TESTING DELETE LATER
+if ($sessionId !== null) {
+
+    echo "<p class='welcome_msg margins'> BONJOUR " . $session->get('username') . "  " . $session->get('id') . " </p>"; // USER ID FOR TESTING DELETE LATER
 
 }
 
