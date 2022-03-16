@@ -1,6 +1,7 @@
 <?php
 //session_start();
-
+var_dump($sessionUserid);
+die;
 // display user name on the profile page
 if (isset($_SESSION["id"])) {
     $userid = $_SESSION["id"];

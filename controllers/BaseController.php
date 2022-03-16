@@ -1,22 +1,21 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 abstract class BaseController
 {
 
     protected $request;
-    protected $session;
 
     public function __construct()
     {
 
         $this->request = Request::createFromGlobals();
+        //  $this->requestStack = RequestStack::getSession();
+        // $this->request->getSession();
         // var_dump($this->request->query->get('id'));
         // die('stop');
-        $session = new Session();
-        $session->start();
+
     }
 
     public function loadModel(string $model)

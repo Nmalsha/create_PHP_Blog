@@ -1,7 +1,15 @@
 <?php
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class Logins extends BaseController
 {
+
+    private $requestStack;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }
 
     public function index()
     {
@@ -17,10 +25,12 @@ class Logins extends BaseController
 
             }
             //get the user informations from the database after verifying necessary details
-            $this->Login->getUser($username, $password);
-
+            $session = $this->requestStack->getSession();
+            var_dump($session);
+            die;
             if (isset($_SESSION['id'])) {
                 $isAdmin = $_SESSION["isAdmin"];
+
                 $userid = $_SESSION["id"];
                 //if the user is admin redirecting to the admin view and passing user id to the url
                 if ($isAdmin !== null) {
