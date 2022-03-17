@@ -45,7 +45,9 @@ class Admins extends BaseController
 
             $this->Post->setPost($userid, $postTitle, $postChapo, $postContent, $filename);
             echo 'post was successfully saved in the database';
-            header("location:/admins/index/" . $userid);
+            $url = "http://localhost:8080/admins/index/$userid";
+            $response = new RedirectResponse($url);
+            $response->send();
         }
 
         $this->render('createpost');
