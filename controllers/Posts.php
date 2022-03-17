@@ -1,4 +1,5 @@
 <?php
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class Posts extends BaseController
 {
@@ -38,7 +39,9 @@ class Posts extends BaseController
         $username = $this->request->get('username');
 
         $this->Comment->createComment($userId, $username, $postid, $comment);
-        header("location:/posts/read/" . $postid);
+        $url = "http://localhost:8080/posts/read/$postid";
+        $response = new RedirectResponse($url);
+        $response->send();
 
     }
 

@@ -1,8 +1,8 @@
 <?php
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class Admins extends BaseController
 {
-
     public function index()
     {
         //load model/post.php file
@@ -33,7 +33,7 @@ class Admins extends BaseController
 
             if (empty($postTitle || $postChapo || $postContent)) {
                 // check if the fields are empty
-                header("location:/createpost?error=emptyInput");
+                //  header("location:/createpost?error=emptyInput");
                 throw new \Exception('Empty input');
             }
 
@@ -58,7 +58,9 @@ class Admins extends BaseController
         //load model/post.php file
         $this->loadModel('Post');
         $post = $this->Post->publicPost($id);
-        header("location:/admins/index/" . $userid);
+        $url = "http://localhost:8080/admins/index/$userid";
+        $response = new RedirectResponse($url);
+        $response->send();
 
     }
 //Delete post with comments
@@ -70,7 +72,9 @@ class Admins extends BaseController
 //load model/Comment.php file
         $this->loadModel('Comment');
         $comments = $this->Comment->deleteCommentsWithPost($id);
-        header("location:/admins/index/" . $userid);
+        $url = "http://localhost:8080/admins/index/$userid";
+        $response = new RedirectResponse($url);
+        $response->send();
 
     }
 //Edit post
@@ -88,6 +92,7 @@ class Admins extends BaseController
             $oldImage = ($this->request->get('image'));
 
 //if the user upload a image file
+
             if (isset($_FILES["fileToUpload"])) {
                 $newPostImage = ($_FILES["fileToUpload"]);
                 $newFilename = $newPostImage["name"];
@@ -101,7 +106,9 @@ class Admins extends BaseController
             $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
 
             echo 'image will be the old image';
-            header("location:/admins/index/" . $userid);
+            $url = "http://localhost:8080/admins/index/$userid";
+            $response = new RedirectResponse($url);
+            $response->send();
 // calling the function to edit the post
             $this->Post->editPost($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename);
             echo ' The post is successfullt updated';
@@ -120,17 +127,6 @@ class Admins extends BaseController
 
         //rending the log user view
         $this->render('manageuser', ['users' => $users]);
-
-    }
-
-    public function deleteuser($id)
-    {
-        // load model/Login.php file
-        $this->loadModel('Login');
-        // and get the function
-        $user = $this->Login->deleteUser($id);
-        echo "User successfully deleted";
-        header("location:/admins/manageuser/");
 
     }
 
@@ -154,7 +150,9 @@ class Admins extends BaseController
         $this->loadModel('Comment');
         // and get the function
         $Comment = $this->Comment->publicComment($id);
-        header("location:/admins/managecomment");
+        $url = "http://localhost:8080/admins/managecomment";
+        $response = new RedirectResponse($url);
+        $response->send();
 
     }
 
@@ -165,8 +163,9 @@ class Admins extends BaseController
         $this->loadModel('Comment');
         // and get the function
         $commente = $this->Comment->deleteComment($id);
-
-        header("location:/admins/managecomment/");
+        $url = "http://localhost:8080/admins/managecomment";
+        $response = new RedirectResponse($url);
+        $response->send();
 
     }
 

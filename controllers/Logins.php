@@ -1,4 +1,5 @@
 <?php
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class Logins extends BaseController
@@ -33,22 +34,30 @@ class Logins extends BaseController
             if ($sessionUserid !== null) {
 
                 $isAdmin = $session->get('isAdmin');
-
+/**
+ * @Route("/admins", name="homepage")
+ */
                 //if the user is admin redirecting to the admin view and passing user id to the url
                 if ($isAdmin !== null) {
-                    header("location:/admins/index");
+                    // return $this->redirectToRoute('adminindex');
+                    $url = "http://localhost:8080/admins/index";
+
+                    $response = new RedirectResponse($url);
+                    $response->send();
 
                 } else {
-                    //if the user is not admin redirecting user to the main page
-                    header("location:/posts");
+                    $url = "http://localhost:8080/posts";
+                    $response = new RedirectResponse($url);
+                    $response->send();
+
                 }
             }
 
         }
 
         //calling to readpost view
-        // $this->render('index', ['sessionUserId' => $sessionUserid, 'sessionUsername' => $sessionUsername, 'isAdmin' => $isAdmin]);
-        $this->render('index', );
+
+        $this->render('index');
     }
 
 }
