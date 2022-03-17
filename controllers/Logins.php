@@ -24,7 +24,7 @@ class Logins extends BaseController
             $cache_expire = session_cache_expire();
 
             $session = new Session();
-
+//set user infos to the session
             $sessionId = $session->set('id', $user[0]["userId"]);
             $session->set('username', $user[0]["username"]);
             $session->set('isAdmin', $user[0]["isAdmin"]);
@@ -48,7 +48,7 @@ class Logins extends BaseController
 
         //calling to readpost view
         // $this->render('index', ['sessionUserId' => $sessionUserid, 'sessionUsername' => $sessionUsername, 'isAdmin' => $isAdmin]);
-        $this->render('index', ['user' => $user]);
+        $this->render('index', );
     }
 
 }

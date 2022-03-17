@@ -1,14 +1,4 @@
 
-<?php
-// display user name on the profile page
-if (isset($_SESSION["id"])) {
-    $userid = $_SESSION["id"];
-    echo "<p class='welcome_msg margins'> BONJOUR " . $_SESSION["username"] . "  " . $_SESSION["id"] . " </p>"; // USER ID FOR TESTING DELETE LATER
-
-}
-?>
-
-
       <div class="container container_styles margins">
 
       <h1 class="form_action">Bienvenue</h1>
@@ -72,4 +62,3 @@ if (isset($_SESSION["id"])) {
 </div>
 </div>
 </div>
-

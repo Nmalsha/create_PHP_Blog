@@ -1,16 +1,4 @@
-<?php
-use Symfony\Component\HttpFoundation\Session\Session;
-$session = new Session();
-$sessionId = $session->get('id');
 
-// display user name on the profile page
-if ($sessionId !== null) {
-
-    echo "<p class='welcome_msg margins'> BONJOUR " . $session->get('username') . "  " . $session->get('id') . " </p>"; // USER ID FOR TESTING DELETE LATER
-
-}
-
-?>
 
 <h2 class='welcome_msg margins'>Blogs</h2>
   <div class="container p-5">

@@ -75,7 +75,20 @@ if ($sessionId !== null) {
 </nav>
 <body>
 <main>
+<?php
 
+if ($sessionId !== null) {
+    $isAdmin = $session->get('isAdmin');
+    if ($isAdmin !== null) {
+        $sessionUsername = $session->get('username');
+        echo "<p class='welcome_msg'> BONJOUR ADMIN  " . $sessionUsername . "  " . $sessionId . " </p>";
+    } else {
+        echo "<p class='welcome_msg'> BONJOUR  " . $sessionUsername . "  " . $sessionId . " </p>";
+
+    }
+
+}
+?>
 <?=$content?>
 
 </main>

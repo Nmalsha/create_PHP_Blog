@@ -1,15 +1,4 @@
-<?php
-use Symfony\Component\HttpFoundation\Session\Session;
-$session = new Session();
-$userid = $session->get('id');
 
-if ($userid !== null) {
-    $sessionUsername = $session->get('username');
-    echo "<p class='welcome_msg'> BONJOUR ADMIN " . $sessionUsername . "  " . $userid . " </p>";
-
-}
-
-?>
 <div class="loguserwrapper">
 <!-- left side bar -->
   <div class="left_sidebar">
