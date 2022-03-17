@@ -39,7 +39,7 @@ class Logins extends BaseController
  */
                 //if the user is admin redirecting to the admin view and passing user id to the url
                 if ($isAdmin !== null) {
-                    // return $this->redirectToRoute('adminindex');
+
                     $url = "http://localhost:8080/admins/index";
 
                     $response = new RedirectResponse($url);

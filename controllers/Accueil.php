@@ -10,7 +10,7 @@ class Accueil extends BaseController
         $this->render('index');
 
     }
-//sending email if someone want to contact me true the contact form
+//sending email if someone wants to contact me true the contact form
     public function form()
     {
         $errors = [];
@@ -22,7 +22,7 @@ class Accueil extends BaseController
             $prenom = htmlspecialchars($this->request->get('prenom'));
             $fromemail = htmlspecialchars($this->request->get('email'));
             $to = "malshis@yahoo.com";
-            //$message = htmlspecialchars($this->request->get('message'));
+
             $subject = "Form submission";
             $subject2 = "Copy of your form submission";
             $message = $nom . " " . $prenom . " wrote the following:" . "\n\n" . $this->request->get('message');
@@ -33,7 +33,9 @@ class Accueil extends BaseController
             mail($to, $subject, $message, $headers);
             mail($fromemail, $subject2, $message2, $headers2); // sends a copy of the message to the sender
             echo "Mail Sent. Thank you " . $nom . ", we will contact you shortly.";
-            header("location:/posts");
+            $url = "http://localhost:8080/posts";
+            $response = new RedirectResponse($url);
+            $response->send();
 
         }
 
