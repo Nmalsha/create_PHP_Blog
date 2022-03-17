@@ -8,7 +8,8 @@
             <div class="col-8 width ">
                 <label for="postTitle" class="form-label">Post Title</label>
                 <input type="text" class="form-control"  name="postTitle" aria-describedby="nom-help">
-                <input type="hidden" class="form-control"  name="userid" value="<?php $userid = ($_GET["id"]);
+                <input type="hidden" class="form-control"  name="userid" value="<?php $userid = $this->request->get("id");
+
 echo $userid;?>">
             </div>
             <br>
