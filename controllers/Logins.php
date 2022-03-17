@@ -1,4 +1,5 @@
 <?php
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class Logins extends BaseController
 {
@@ -17,11 +18,22 @@ class Logins extends BaseController
 
             }
             //get the user informations from the database after verifying necessary details
-            $this->Login->getUser($username, $password);
+            $user = $this->Login->getUser($username, $password);
+            /* Configure le délai d'expiration à 30 minutes */
+            session_cache_expire(30);
+            $cache_expire = session_cache_expire();
 
-            if (isset($_SESSION['id'])) {
-                $isAdmin = $_SESSION["isAdmin"];
-                $userid = $_SESSION["id"];
+            $session = new Session();
+//set user infos to the session
+            $sessionId = $session->set('id', $user[0]["userId"]);
+            $session->set('username', $user[0]["username"]);
+            $session->set('isAdmin', $user[0]["isAdmin"]);
+            $sessionUserid = $session->get('id');
+
+            if ($sessionUserid !== null) {
+
+                $isAdmin = $session->get('isAdmin');
+
                 //if the user is admin redirecting to the admin view and passing user id to the url
                 if ($isAdmin !== null) {
                     header("location:/admins/index");
@@ -35,7 +47,8 @@ class Logins extends BaseController
         }
 
         //calling to readpost view
-        $this->render('index');
+        // $this->render('index', ['sessionUserId' => $sessionUserid, 'sessionUsername' => $sessionUsername, 'isAdmin' => $isAdmin]);
+        $this->render('index', );
     }
 
 }

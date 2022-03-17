@@ -1,5 +1,5 @@
-<section class="container-fluid actualite">
-    <div class="container">
+
+    <div class="container margins">
         <div class="row">
 
         <aside class="col-9">
@@ -23,20 +23,6 @@
                             <p> pas inscrit ? <a href="/signups">Inscrez-vous</a>
                 <div>
 
-            <?php
-// error handling
-
-if (isset($_GET["error"])) {
-
-    if ($_GET["error"] == "emptyInput") {
-        echo "<p>Remplieez tous les champs</p>";
-
-    } else if ($_GET["error"] == "wronglogin") {
-        echo "<p>Indentifiant/motdepass invalide</p>";
-    }
-
-}
-?>
 
 
             </form>
@@ -44,4 +30,3 @@ if (isset($_GET["error"])) {
         </aside>
         </div>
     </div>
-</section>

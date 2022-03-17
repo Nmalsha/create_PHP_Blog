@@ -39,5 +39,6 @@ if ($params[1] !== "") {
     }
 
 } else {
-    die('stop');
+    // erreur 404 si l'action n'existe pas dans le controlleur ...
+    throw new exception('404 Error, action "' . $action . '" doesn\'t exists into "' . (string) $controller . '" controller!');
 }

@@ -1,4 +1,8 @@
 <?php
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+$sessionUsername = $session->get('username');
+$sessionId = $session->get('id');
 
 ?>
 
@@ -28,7 +32,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse list" >
+    <div class="collapse navbar-collapse list " id ="navbarSupportedContent"  >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
       <a class="nav-link active" aria-current="" href="/accueil">Accueil</a>
@@ -37,18 +41,18 @@
           <a class="nav-link active" aria-current="" href="/posts">Blogs</a>
         </li>
         <?php
-if (isset($_SESSION["id"])) {
-    $isAdmin = $_SESSION["isAdmin"];
+if ($sessionId !== null) {
+    $isAdmin = $session->get('isAdmin');
 
     if ($isAdmin == 1) {
 
-        echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
+        echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $sessionUsername . "
             </a></li>";
         echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
 
     }if ($isAdmin === null) {
 
-        echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $_SESSION["username"] . "
+        echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $sessionUsername . "
             </a></li>";
         echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
     }
@@ -71,17 +75,52 @@ if (isset($_SESSION["id"])) {
 </nav>
 <body>
 <main>
+<?php
 
+if ($sessionId !== null) {
+    $isAdmin = $session->get('isAdmin');
+    if ($isAdmin !== null) {
+        $sessionUsername = $session->get('username');
+        echo "<p class='welcome_msg'> BONJOUR ADMIN  " . $sessionUsername . "  " . $sessionId . " </p>";
+    } else {
+        echo "<p class='welcome_msg'> BONJOUR  " . $sessionUsername . "  " . $sessionId . " </p>";
+
+    }
+
+}
+?>
 <?=$content?>
 
 </main>
 
+<section class="footer margins">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #0a4275;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Admistration</span>
+          <a href="/logins" ><button type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+          </button></a>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
 
-<footer class="bg-light text-center text-lg-start mt-auto">
-  <div class="text-center p-3">
-    © 2022 Copyright:
-    <a class="text-dark" href="https://openclassrooms.com/">OpenClassrooms</a>
-  </div>
-</footer>
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://openclassrooms.com/fr/">openclassrooms.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
+
 </body>
+
 </html>

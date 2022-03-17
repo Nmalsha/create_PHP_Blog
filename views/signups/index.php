@@ -1,8 +1,7 @@
-<section class="container-fluid actualite">
-      <div class="container">
+
+      <div class="container margins">
         <div class="row">
-    <article class="col-3">
-</article>
+
     <aside class="col-9">
 
         <form  method="post" action="/Signups">
@@ -38,28 +37,7 @@
             <br>
             <p> Deja inscrit ? <a href="/logins">se connecté</a>
             <div class="error_display">
-            <?php
-// error handling
 
-if (isset($_GET["error"])) {
-
-    if ($_GET["error"] == "emptyInput") {
-        echo "<p>Remplieez tous les champs</p>";
-
-    } else if ($_GET["error"] == "IninvalidUid") {
-        echo "<p>Indentifiant invalide</p>";
-    } else if ($_GET["error"] == "IninvalidEmail") {
-        echo "<p>email invalide</p>";
-    } else if ($_GET["error"] == "passworddontmatched") {
-        echo "<p>Les mots de passe ne correspondent pas</p>";
-    } else if ($_GET["error"] == "Usernametaken") {
-        echo "<p>L'utilisateur déjà existe </p>";
-    } else if ($_GET["error"] == "noerrors") {
-        echo "<p>Vous avez bien inscrit ! </p>";
-    }
-
-}
-?>
 </div>
 </div>
         </form>
@@ -67,5 +45,3 @@ if (isset($_GET["error"])) {
 </aside>
 </div>
 </div>
-
-</section>
