@@ -26,14 +26,14 @@ class Admins extends BaseController
             $postContent = htmlspecialchars($this->request->get('contenue'));
 
             //image file
-            $postImage = ($this->files->get["fileToUpload"]);
+            $postImage = ($_FILES["fileToUpload"]);
 
             $filename = $postImage["name"];
             $templateName = $postImage["tmp_name"];
 
             if (empty($postTitle || $postChapo || $postContent)) {
                 // check if the fields are empty
-                //  header("location:/createpost?error=emptyInput");
+
                 throw new \Exception('Empty input');
             }
 
@@ -45,7 +45,9 @@ class Admins extends BaseController
 
             $this->Post->setPost($userid, $postTitle, $postChapo, $postContent, $filename);
             echo 'post was successfully saved in the database';
-            header("location:/admins/index/" . $userid);
+            $url = "http://localhost:8080/admins/index/$userid";
+            $response = new RedirectResponse($url);
+            $response->send();
         }
 
         $this->render('createpost');
@@ -101,6 +103,8 @@ class Admins extends BaseController
             }
             // if the user dont update a new image , get the old image
             $oldImage = ($this->request->get('image'));
+            // var_dump($oldImage);
+
             $newFilename = $oldImage;
             //save new image to the DB
             $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
