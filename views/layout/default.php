@@ -13,6 +13,7 @@ $sessionId = $session->get('id');
     <metaname="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="PHP blog post"/>
     <title>MY BLOG POST</title>
+    <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
     <!---Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,13 +49,13 @@ if ($sessionId !== null) {
 
         echo "<li class='nav-item'><a class='nav-link' href='/admins/index'><i class='fa fa-user' aria-hidden='true'></i> " . $sessionUsername . "
             </a></li>";
-        echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
+        echo "<li class='nav-item'><a class='nav-link' href='/logout/logout'>logout </a></li>";
 
     }if ($isAdmin === null) {
 
         echo "<li class='nav-item'><a class='nav-link' href='/posts'><i class='fa fa-user' aria-hidden='true'></i> " . $sessionUsername . "
             </a></li>";
-        echo "<li class='nav-item'><a class='nav-link' href='/controllers/logout.php'>logout </a></li>";
+        echo "<li class='nav-item'><a class='nav-link' href='/logout/logout'>logout </a></li>";
     }
 } else {
     // if not log in display signup and connection

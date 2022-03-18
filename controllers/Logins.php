@@ -20,9 +20,6 @@ class Logins extends BaseController
             }
             //get the user informations from the database after verifying necessary details
             $user = $this->Login->getUser($username, $password);
-            /* Configure le délai d'expiration à 30 minutes */
-            session_cache_expire(30);
-            $cache_expire = session_cache_expire();
 
             $session = new Session();
 //set user infos to the session
@@ -38,13 +35,13 @@ class Logins extends BaseController
                 //if the user is admin redirecting to the admin view and passing user id to the url
                 if ($isAdmin !== null) {
 
-                    $url = "http://localhost:8080/admins/index";
+                    $url = "admins/index";
 
                     $response = new RedirectResponse($url);
                     $response->send();
 
                 } else {
-                    $url = "http://localhost:8080/posts";
+                    $url = "/posts";
                     $response = new RedirectResponse($url);
                     $response->send();
 

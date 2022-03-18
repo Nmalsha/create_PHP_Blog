@@ -39,7 +39,7 @@ class Posts extends BaseController
         $username = $this->request->get('username');
 
         $this->Comment->createComment($userId, $username, $postid, $comment);
-        $url = "http://localhost:8080/posts/read/$postid";
+        $url = "/posts/read/$postid";
         $response = new RedirectResponse($url);
         $response->send();
 
