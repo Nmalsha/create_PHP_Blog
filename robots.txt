@@ -1,47 +1,13 @@
-  <?php
-function getRobots($url)
-    {
-        $robotsUrl = $url . "/robots.txt";
-          $robot = null;
-          //create an object
-          $allRobots = [];
-          $fh = fopen($robotsUrl,'r');
-          while (($line = fgets($fh)) != false) {
-            echo $line . "<br>";
-           if (preg_match("/user-agent.*/i", $line) ){
-                if($robot != null){
-                  array_push($allRobots, $robot);
-                }
+# Example 1: Block only Googlebot
+User-agent: Googlebot
+Disallow: /
 
-                $robot = new stdClass();
-                $robot->userAgent = [];
-                $robot->userAgent = explode(':', $line, 2)[1];
-                $robot->disAllow = [];
-                $robot->allow = [];
+# Example 2: Block Googlebot and Adsbot
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /
 
+# Example 3: Block all but AdsBot crawlers
+User-agent: *
+Disallow: /
 
-              }
-            if (preg_match("/disallow.*/i", $line)){
-              array_push($robot->disAllow, explode(':', $line, 2)[1]);
-            }
-            else if (preg_match("/^allow.*/i", $line)){
-              array_push($robot->allow, explode(':', $line, 2)[1]);
-           }
-
-
-          }
-
-          var_dump($line);
-
-          if($robot != null){
-            array_push($allRobots, $robot);
-          }
-
-
-          //Lazy way of outputting. Loop through for prettier output.
-          var_dump($allRobots);
-    }
-
-getRobots("https://www.google.com");
-
-?>
