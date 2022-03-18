@@ -11,7 +11,7 @@ $uri = $_SERVER['REQUEST_URI'];
 
 //serapation the url parameters
 $params = explode('/', $uri);
-
+//var_dump($params);
 if ($params[1] !== "") {
 
     //controller (make first letter capital with ucfirst)
@@ -22,7 +22,8 @@ if ($params[1] !== "") {
     require_once __DIR__ . '/controllers/' . $controller . '.php';
 
     $controller = new $controller();
-
+    // var_dump($controller);
+    // die;
     //check if the method exist in a controller
     if (method_exists($controller, $action)) {
         // checking if there is third parameter in the url
@@ -33,9 +34,12 @@ if ($params[1] !== "") {
 
         call_user_func_array([$controller, $action], $params);
 
+    } else {
+        // erreur 404 si l'action n'existe pas dans le controlleur ...
+        throw new exception('404 Error, action "' . $action . '" doesn\'t exists into "' . (string) $controller . '" controller!');
     }
 
 } else {
     // erreur 404 si l'action n'existe pas dans le controlleur ...
-    throw new exception('404 Error, action "' . $action . '" doesn\'t exists into "' . (string) $controller . '" controller!');
+    throw new exception('404 Error, no params');
 }

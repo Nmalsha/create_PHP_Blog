@@ -45,7 +45,7 @@ class Admins extends BaseController
 
             $this->Post->setPost($userid, $postTitle, $postChapo, $postContent, $filename);
             echo 'post was successfully saved in the database';
-            $url = "http://localhost:8080/admins/index/$userid";
+            $url = "/admins/index";
             $response = new RedirectResponse($url);
             $response->send();
         }
@@ -60,7 +60,7 @@ class Admins extends BaseController
         //load model/post.php file
         $this->loadModel('Post');
         $post = $this->Post->publicPost($id);
-        $url = "http://localhost:8080/admins/index/$userid";
+        $url = "/admins/index";
         $response = new RedirectResponse($url);
         $response->send();
 
@@ -74,7 +74,7 @@ class Admins extends BaseController
 //load model/Comment.php file
         $this->loadModel('Comment');
         $comments = $this->Comment->deleteCommentsWithPost($id);
-        $url = "http://localhost:8080/admins/index/$userid";
+        $url = "/admins/index";
         $response = new RedirectResponse($url);
         $response->send();
 
@@ -110,7 +110,7 @@ class Admins extends BaseController
             $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
 
             echo 'image will be the old image';
-            $url = "http://localhost:8080/admins/index/$userid";
+            $url = "/admins/index";
             $response = new RedirectResponse($url);
             $response->send();
 // calling the function to edit the post
@@ -154,7 +154,7 @@ class Admins extends BaseController
         $this->loadModel('Comment');
         // and get the function
         $Comment = $this->Comment->publicComment($id);
-        $url = "http://localhost:8080/admins/managecomment";
+        $url = "admins/managecomment";
         $response = new RedirectResponse($url);
         $response->send();
 
@@ -167,7 +167,7 @@ class Admins extends BaseController
         $this->loadModel('Comment');
         // and get the function
         $commente = $this->Comment->deleteComment($id);
-        $url = "http://localhost:8080/admins/managecomment";
+        $url = "/admins/managecomment";
         $response = new RedirectResponse($url);
         $response->send();
 

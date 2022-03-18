@@ -45,7 +45,7 @@ class Signups extends BaseController
 
 //save user informations to the database after verifying necessary details
             $this->Signup->setUser($username, $password, $email);
-            $url = "http://localhost:8080/logins";
+            $url = "/logins";
 
             $response = new RedirectResponse($url);
             $response->send();
