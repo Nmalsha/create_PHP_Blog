@@ -103,7 +103,6 @@ class Admins extends BaseController
             }
             // if the user dont update a new image , get the old image
             $oldImage = ($this->request->get('image'));
-            // var_dump($oldImage);
 
             $newFilename = $oldImage;
             //save new image to the DB
