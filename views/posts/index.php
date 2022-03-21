@@ -19,8 +19,7 @@ echo $post['postTitle'] ?></h5> </a>
 
                 </div>
             </div>
-            <?php var_dump($post['postImage']);
-    var_dump($post['postId']);}?>
+            <?php }?>
       </div>
   </div>
 
