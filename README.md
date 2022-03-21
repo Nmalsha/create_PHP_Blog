@@ -16,4 +16,5 @@ This PHP Blog System has an MVC pattern,PDO (PHP 5.1) and the new PHP Password H
 
 ### Installation
 
-- Start server with command php -S localhost:8000
+- Insatall composser https://getcomposer.org/download/
+- Start server with command php -S localhost:8080
