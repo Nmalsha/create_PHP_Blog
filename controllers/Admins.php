@@ -96,9 +96,6 @@ class Admins extends BaseController
             if (!isset($_FILES["fileToUpload"])) {
                 // if the user dont update a new image , get the old image
                 $oldImage = ($this->request->get('image'));
-                // var_dump($oldImage);
-                // var_dump($newFilename);
-                // die;
 
                 $image = move_uploaded_file($newTemplateName, "public/images/" . $oldImage);
             }
