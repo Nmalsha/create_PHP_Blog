@@ -93,22 +93,23 @@ class Admins extends BaseController
             $newPostContent = htmlspecialchars($this->request->get('contenue'));
             $oldImage = ($this->request->get('image'));
 
-//if the user upload a image file
+            if (!isset($_FILES["fileToUpload"])) {
+                // if the user dont update a new image , get the old image
+                $oldImage = ($this->request->get('image'));
+                // var_dump($oldImage);
+                // var_dump($newFilename);
+                // die;
 
-            if (isset($_FILES["fileToUpload"])) {
-                $newPostImage = ($_FILES["fileToUpload"]);
-                $newFilename = $newPostImage["name"];
-                $newTemplateName = $newPostImage["tmp_name"];
-
+                $image = move_uploaded_file($newTemplateName, "public/images/" . $oldImage);
             }
-            // if the user dont update a new image , get the old image
-            $oldImage = ($this->request->get('image'));
+            //if the user upload a image file
+            $newPostImage = ($_FILES["fileToUpload"]);
+            $newFilename = $newPostImage["name"];
+            $newTemplateName = $newPostImage["tmp_name"];
 
-            $newFilename = $oldImage;
-            //save new image to the DB
+            //save new image to the folder image
             $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
 
-            echo 'image will be the old image';
             $url = "/admins/index";
             $response = new RedirectResponse($url);
             $response->send();
@@ -145,7 +146,7 @@ class Admins extends BaseController
 
     }
 
-    //Public the post
+    //Public the comments
     public function publicComment($id)
     {
 
