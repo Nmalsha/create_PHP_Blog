@@ -24,6 +24,7 @@ class Admins extends BaseController
             $postTitle = htmlspecialchars($this->request->get('postTitle'));
             $postChapo = htmlspecialchars($this->request->get('chapo'));
             $postContent = htmlspecialchars($this->request->get('contenue'));
+            $username = ($this->request->get('username'));
 
             //image file
             $postImage = ($_FILES["fileToUpload"]);
@@ -43,7 +44,7 @@ class Admins extends BaseController
                 echo 'image was successfully saved in image file';
             }
 
-            $this->Post->setPost($userid, $postTitle, $postChapo, $postContent, $filename);
+            $this->Post->setPost($userid, $username, $postTitle, $postChapo, $postContent, $filename);
             echo 'post was successfully saved in the database';
             $url = "/admins/index";
             $response = new RedirectResponse($url);
@@ -91,28 +92,28 @@ class Admins extends BaseController
             $newPostTitle = htmlspecialchars($this->request->get('postTitle'));
             $newPostChapo = htmlspecialchars($this->request->get('chapo'));
             $newPostContent = htmlspecialchars($this->request->get('contenue'));
-            $oldImage = ($this->request->get('image'));
 
-            if (!isset($_FILES["fileToUpload"])) {
+            if (!isset($_FILES["fileToUpload"]['name']) || empty($_FILES["fileToUpload"]['name'])) {
                 // if the user dont update a new image , get the old image
-                $oldImage = ($this->request->get('image'));
+                $newFilename = ($this->request->get('image'));
 
-                $image = move_uploaded_file($newTemplateName, "public/images/" . $oldImage);
+                // $oldImage = $newFilename;
+
+            } else {
+                //if the user upload a image file
+                $newPostImage = ($_FILES["fileToUpload"]);
+                $newFilename = $newPostImage["name"];
+                $newTemplateName = $newPostImage["tmp_name"];
+                //save new image to the folder image
+
             }
-            //if the user upload a image file
-            $newPostImage = ($_FILES["fileToUpload"]);
-            $newFilename = $newPostImage["name"];
-            $newTemplateName = $newPostImage["tmp_name"];
-
-            //save new image to the folder image
             $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
+            // calling the function to edit the post
+            $this->Post->editPost($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename);
 
             $url = "/admins/index";
             $response = new RedirectResponse($url);
             $response->send();
-// calling the function to edit the post
-            $this->Post->editPost($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename);
-            echo ' The post is successfullt updated';
 
         }
 

@@ -15,6 +15,7 @@ echo $post['postImage'] ?>" alt="card image">
                   <a  href= "/posts/read/<?php echo $post['postId'] ?>" ><h5 class="card-title"><?php
 echo $post['postTitle'] ?></h5> </a>
                       <p class=""><?php echo $post['lastUpdatedOn'] ?></p>
+                      <p class="">Créer par : <?php echo $post['username'] ?></p>
                       <p class="card-text"><?php echo $post['postChapo'] ?></p>
 
                 </div>

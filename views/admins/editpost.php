@@ -1,4 +1,10 @@
+<?php
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+$sessionUsername = $session->get('username');
+$sessionId = $session->get('id');
 
+?>
 <div class="content">
   <h3 class="page_title">Edit Posts</h3>
 <form action="" method="post"  enctype="multipart/form-data" >
@@ -32,7 +38,10 @@ echo '<img class="card-img-top img_style" src="../../public/images/' . $post["po
                 <label for="file" class="form-label">Image</label>
                 <input type="file" name="fileToUpload" id="fileToUpload" >
                 <input type="text" class="form-control"  name="image" value="<?php echo $post['postImage'] ?>">
+                <input type="hidden" class="form-control"  name="username" value="<?php $sessionUsername = $session->get('username');
 
+echo $sessionUsername;
+?>">
             </div>
             <button type="submit" name="submit" class="btn btn-primary btn_style">Edit Post</button>
             <a  href= "/admins/index" ><button type="submit" name="submit" class="btn btn-primary btn_style">Cancel edit</button></a>

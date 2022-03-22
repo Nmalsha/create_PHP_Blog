@@ -11,13 +11,13 @@ class Post extends Dbh
     }
 
 //setting values to the database
-    public function setPost($userid, $postTitle, $postChapo, $postContent, $filename)
+    public function setPost($userid, $username, $postTitle, $postChapo, $postContent, $filename)
     {
         $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //creating statement to prevent SQL injections
-        $stmt = $this->connect()->prepare('INSERT INTO posts( userId,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?);');
+        $stmt = $this->connect()->prepare('INSERT INTO posts( userId,username,postTitle,postChapo,postContent,postImage) VALUES (?,?,?,?,?,?);');
 
-        if (!$stmt->execute(array($userid, $postTitle, $postChapo, $postContent, $filename))) {
+        if (!$stmt->execute(array($userid, $username, $postTitle, $postChapo, $postContent, $filename))) {
 
             $stmt = null;
             throw new \PDOException($stmt->errorInfo()[2]);
@@ -164,7 +164,7 @@ class Post extends Dbh
     public function editPost($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename)
     {
         $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE  posts  SET  postTitle='$newPostTitle' ,postChapo='$newPostChapo' ,postContent='$newPostContent', postImage='$newFilename' WHERE postId=$id ";
+        $sql = "UPDATE  posts  SET    postTitle='$newPostTitle' ,postChapo='$newPostChapo' ,postContent='$newPostContent', postImage='$newFilename' WHERE postId=$id ";
 
         $stmt = $this->connect()->prepare($sql);
 
@@ -175,6 +175,7 @@ class Post extends Dbh
             throw new \PDOException($stmt->errorInfo()[2]);
 
         }
+
         $posts = $stmt->fetch();
 
         return $posts;
