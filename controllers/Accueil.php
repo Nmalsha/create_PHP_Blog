@@ -1,4 +1,5 @@
 <?php
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class Accueil extends BaseController
 {
@@ -32,7 +33,7 @@ class Accueil extends BaseController
             $headers2 = "From:" . $to;
             mail($to, $subject, $message, $headers);
             mail($fromemail, $subject2, $message2, $headers2); // sends a copy of the message to the sender
-            echo "Mail Sent. Thank you " . $nom . ", we will contact you shortly.";
+
             $url = "/posts";
             $response = new RedirectResponse($url);
             $response->send();

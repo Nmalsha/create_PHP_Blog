@@ -152,7 +152,7 @@ class Admins extends BaseController
         $this->loadModel('Comment');
         // and get the function
         $Comment = $this->Comment->publicComment($id);
-        $url = "admins/managecomment";
+        $url = "/admins/managecomment";
         $response = new RedirectResponse($url);
         $response->send();
 
