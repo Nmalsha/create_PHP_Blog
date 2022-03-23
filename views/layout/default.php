@@ -75,6 +75,7 @@ if ($sessionId !== null) {
   </div>
 </nav>
 <body>
+  <section class="main_wrapp">
 <main>
 <?php
 
@@ -121,7 +122,7 @@ if ($sessionId !== null) {
   </footer>
   <!-- Footer -->
 </section>
-
+</section>
 </body>
 
 </html>

@@ -1,3 +1,10 @@
+<?php
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+$sessionUsername = $session->get('username');
+$sessionId = $session->get('id');
+
+?>
 
 <div class="content">
   <h3 class="page_title">Create Posts</h3>
@@ -11,6 +18,10 @@
                 <input type="hidden" class="form-control"  name="userid" value="<?php $userid = $this->request->get("id");
 
 echo $userid;?>">
+<input type="hidden" class="form-control"  name="username" value="<?php $sessionUsername = $session->get('username');
+
+echo $sessionUsername;
+?>">
             </div>
             <br>
             <div class="col-8 width">
