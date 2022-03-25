@@ -31,8 +31,7 @@ class Admins extends BaseController
 
             $filename = $postImage["name"];
             $templateName = $postImage["tmp_name"];
-            // var_dump($_FILES["fileToUpload"]);
-            // die;
+
             if (empty($postTitle || $postChapo || $postContent)) {
                 // check if the fields are empty
 
