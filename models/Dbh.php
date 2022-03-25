@@ -3,32 +3,22 @@
 class Dbh
 {
 
-//Connection property
-    public $_connection;
+    private static $instance = null;
 
-    public $table;
-    public $id;
-
-    protected function connect()
+    public static function connect()
     {
-        $this->_connection = null;
+        if (self::$instance === null) {
 
-        try {
+            $filename = require ROOT . 'config/config.php';
 
-            $dBUsername = "root";
-            $dBUPassword = "";
+            self::$instance = new PDO(
+                "mysql:host=$filename[0];
+               dbname=$filename[1]",
+                $filename[2],
+                $filename[3]);
 
-            $dbh = $this->_connection;
-
-            $dbh = new PDO('mysql:host=127.0.0.1;dbname=blogposts', $dBUsername, $dBUPassword);
-            $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-            return $dbh;
-
-        } catch (PDOException $e) {
-            print "Error DB!" . $e->getMessage() . "<br/>";
-            throw new \Exception('DB ERROR');
         }
+        return self::$instance;
 
     }
 

@@ -163,7 +163,7 @@ class Post extends Dbh
 //Function to edit the post
     public function editPost($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename)
     {
-        $this->connect()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
         $sql = "UPDATE  posts  SET    postTitle='$newPostTitle' ,postChapo='$newPostChapo' ,postContent='$newPostContent', postImage='$newFilename' WHERE postId=$id ";
 
         $stmt = $this->connect()->prepare($sql);
