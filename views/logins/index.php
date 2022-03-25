@@ -2,7 +2,7 @@
     <div class="container margins">
         <div class="row">
 
-        <aside class="col-9">
+        <aside class="">
 
             <form method="post" action="/logins" >
                 <div class="formwrapp">

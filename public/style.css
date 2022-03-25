@@ -1,7 +1,5 @@
 /* header.php*/
-.container-fluid {
-  height: 70px;
-}
+
 .bg_color {
   background-color: #124375;
 }
@@ -90,7 +88,20 @@ label {
   border-radius: 10px 10px 0px 0;
   border: 2px solid #124375;
 }
-
+.post_detials {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.card_readpost {
+  width: 40%;
+}
+@media only screen and (max-width: 900px) {
+  .card_readpost {
+    width: 100%;
+    height: 100%;
+  }
+}
 /* PAGE ACCUEILS*/
 
 /* FOOTER*/

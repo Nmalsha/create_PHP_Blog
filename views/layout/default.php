@@ -9,8 +9,8 @@ $sessionId = $session->get('id');
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-    <metaname="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="PHP blog post"/>
     <title>MY BLOG POST</title>
     <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
@@ -22,21 +22,26 @@ $sessionId = $session->get('id');
     <script src="https://kit.fontawesome.com/15024a0798.js" crossorigin="anonymous"></script>
     <!--Styles -->
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/public/style.css" />
     <link rel="stylesheet" href="/public//adminStyle.css" />
   </head>
 
+<body>
 
 <nav class="navbar  sticky-top navbar-expand-lg navbar-dark  bg_color">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="/public/images/logo.png" width="200" alt="logo de la site"/></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/posts"><img src="/public/images/logo.png" width="200" alt="logo de la site"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarControl" aria-controls="navbarControl" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse list " id ="navbarSupportedContent"  >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse  list " id="navbarControl" >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"   >
       <li class="nav-item">
-      <a class="nav-link active" aria-current="" href="/accueil">Accueil</a>
+      <a class="nav-link active " aria-current="" href="/accueil">Accueil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="" href="/posts">Blogs</a>
@@ -74,7 +79,7 @@ if ($sessionId !== null) {
     </div>
   </div>
 </nav>
-<body>
+
   <section class="main_wrapp">
 <main>
 <?php
