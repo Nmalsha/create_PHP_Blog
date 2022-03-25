@@ -31,7 +31,8 @@ class Admins extends BaseController
 
             $filename = $postImage["name"];
             $templateName = $postImage["tmp_name"];
-
+            // var_dump($_FILES["fileToUpload"]);
+            // die;
             if (empty($postTitle || $postChapo || $postContent)) {
                 // check if the fields are empty
 
@@ -39,9 +40,10 @@ class Admins extends BaseController
             }
 
             if ($filename && $templateName) {
-                $image = move_uploaded_file($templateName, "public/images/" . $filename);
 
+                $image = move_uploaded_file($templateName, "public/images/" . $filename);
                 echo 'image was successfully saved in image file';
+
             }
 
             $this->Post->setPost($userid, $username, $postTitle, $postChapo, $postContent, $filename);
@@ -97,17 +99,17 @@ class Admins extends BaseController
                 // if the user dont update a new image , get the old image
                 $newFilename = ($this->request->get('image'));
 
-                // $oldImage = $newFilename;
-
             } else {
                 //if the user upload a image file
                 $newPostImage = ($_FILES["fileToUpload"]);
                 $newFilename = $newPostImage["name"];
                 $newTemplateName = $newPostImage["tmp_name"];
-                //save new image to the folder image
+
+//save new image to the folder image
+                $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
 
             }
-            $image = move_uploaded_file($newTemplateName, "public/images/" . $newFilename);
+
             // calling the function to edit the post
             $this->Post->editPost($id, $newPostTitle, $newPostChapo, $newPostContent, $newFilename);
 
