@@ -6,7 +6,6 @@ class BaseController
 {
 
     protected $request;
-    protected $requestStack;
 
     public function __construct()
     {
