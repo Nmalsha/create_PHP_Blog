@@ -17,7 +17,7 @@
 </div>
 <div class="col-4 ">
 <div>
-        <h5 style="color:green;">Voir mon CV</h5>
+        <h5 style="color:green;"> Modifier(pour voir le pull request)Voir mon CV</h5>
 
         <a href="/public/CV_Malsha.pdf">Download PDF Now</a></div>
 </div>
